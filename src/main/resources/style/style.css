@@ -1,0 +1,101 @@
+/*edd98b*/
+
+#transparent{
+    -fx-background-color : transparent ;
+}
+.button{
+    -fx-background-color:  #2D3237;
+    -fx-alignment:center;
+    -fx-text-fill: #edd98b;
+}
+#musicbutton{
+    -fx-graphic:url("../images/music-player.png");
+}
+#moviebutton{
+    -fx-graphic: url("../images/clapperboard.png");
+}
+#exit{
+    -fx-graphic: url("../images/logout.png");
+}
+#searchButton{
+    -fx-graphic: url("../images/search.png");
+}
+.button:hover{
+    -fx-background-color: #4F5459;
+    -fx-cursor: hand;
+}
+
+#musicMenu{
+    -fx-background-color: #2D3237;
+
+}
+#movieMenu{
+    -fx-background-color: #2D3237;
+}
+#top{
+    -fx-background-color: #2D3237;
+}
+.label{
+    -fx-alignment:center;
+    -fx-text-fill: #edd98b;
+}
+/*glowne panele*/
+#moviePane{
+    -fx-background-color: linear-gradient(#4D5459,#2D3237);
+}
+#musicPane{
+    -fx-background-color: linear-gradient(#4D5459,#2D3237);
+}
+#mainPane{
+    -fx-background-color: #2D3237;
+}
+.list-view{
+
+    -fx-background-color: transparent;
+    -fx-cell-size: 150;
+}
+#playlisty .list-cell{
+    -fx-background-color: #2D3237;
+
+}
+.scroll-bar{
+    -fx-background-color: #2D3237;
+}
+.scroll-bar .thumb{
+    -fx-background-color: #edd98b;
+}
+.scroll-bar .thumb:pressed,
+.scroll-bar .thumb:hover{
+    -fx-cursor: hand;
+    -fx-background-color: derive(#edd98b,50%);
+}
+.scroll-bar .increment-button{
+    -fx-background-color:transparent;
+
+}
+#volumeSlider{
+
+ }
+
+#displayAlbumsArtists,
+#displayWithInfo,
+#displaySongs,
+#mainMusicPane
+{
+    -fx-background-color:linear-gradient(#4D5459,#32373C);
+}
+
+#genresListView .list-cell,
+#moodsListView .list-cell
+{
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+/*#genresListView  .scroll-bar:horizontal {*/
+    /*-fx-scale-x: 0;*/
+/*}*/
+#genresListView .list-cell:hover #gmbutton,
+#moodsListView .list-cell:hover #gmbutton
+{
+    -fx-font-size:30px;
+}
