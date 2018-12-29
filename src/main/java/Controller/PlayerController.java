@@ -1,33 +1,40 @@
 package Controller;
 
 
-import Model.DisplayButton;
-import Model.Genres;
-import Model.Moods;
-import Model.PlaylistButton;
+import Model.*;
 import com.jfoenix.controls.JFXListView;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -36,24 +43,47 @@ public class PlayerController implements Initializable {
 
     @FXML
     private Button musicbutton,moviebutton,exit,displayAlbums,displayArtists,displaySongsButton,
-            searchButton,addSongsButton;
+            searchButton,addSongsButton,playlistCreateButton;
 
     @FXML
     private AnchorPane moviePane,musicPane,musicMenu,movieMenu,
-            displayWithInfo,displayAlbumsArtists,displaySongs,mainMusicPane;
+            displayWithInfo,displayAlbumsArtists,displaySongs,mainMusicPane,
+            createPlaylistPane;
 
     @FXML
     private ListView<Button>playlisty;
-
     @FXML
-    private Label info;
+    private ListView<DisplayArtistAlbum>AAView;
+    @FXML
+    private Label info,printSongInfo;
 
     @FXML
     private JFXListView<Button>genresListView,moodsListView;
 
     @FXML
+    private TableView<Song> tableOfSongs,songsOfPlaylist;
+    @FXML
+    private TableColumn<Song,String>title,artist,album,year,track,
+                                    titleP,artistP,albumP,yearP,trackP;
+    @FXML
+    private TableColumn<Song,Integer>rate,rateP;
+    @FXML
+    private TextField searchField,playlistName;
+    @FXML
+    private TextArea playlistDescription;
+    @FXML
+    private ImageView playlistImage,imageView;
+    @FXML
+    private Pane songPane;
+
+    @FXML
     private void search(){
-        System.out.println(1);
+        String regex=searchField.getText();
+        try {
+            updateTable(2,regex);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -73,23 +103,121 @@ public class PlayerController implements Initializable {
             musicMenu.setVisible(false);
         }
         else if(event.getTarget()==exit){
-            System.out.println("o chuj");
+            Platform.exit();
+            System.exit(0);
         }
         else if(event.getTarget()==displayAlbums){
+            loadAlbums();
             displayAlbumsArtists.toFront();
         }
         else if(event.getTarget()==displayArtists){
+            loadArtists();
             displayAlbumsArtists.toFront();
+
         }
         else if(event.getTarget()==displaySongsButton){
             displaySongs.toFront();
+            try {
+                updateTable(1,null);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    //create Playlist
     @FXML
     private void createPlaylist(){
+        createPlaylistPane.toFront();
+    }
+
+    @FXML
+    private void playlistCreator(){
+        String name=playlistName.getText();
+        String description=playlistDescription.getText();
+        String imagepath=playlistImage.getImage().getUrl();
 
     }
+
+
+    @FXML
+    private void loadArtists(){
+
+        ObservableList<Artist>artists=null;
+        try {
+            artists=JDBCConnector.returnArtists();
+            if(artists!=null){
+                AAView.getItems().clear();
+                for(Artist artist:artists){
+                    AAView.getItems().add(new DisplayArtistAlbum(artist));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        AAView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent click) {
+
+                if (click.getClickCount() == 2) {
+                    String[] parts = AAView.getSelectionModel().getSelectedItem().getAccessibleText().split("\\|");
+                    System.out.println(parts[1]);
+                    displayPlaylistPane(2,parts[0],parts[1]);
+
+                }
+            }
+        });
+    }
+    private void loadAlbums(){
+        ObservableList<Album>albums=null;
+        try {
+            albums=JDBCConnector.returnAlbums();
+            if(albums!=null){
+                AAView.getItems().clear();
+                for(Album album:albums){
+                    AAView.getItems().add(new DisplayArtistAlbum(album));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        AAView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent click) {
+
+                if (click.getClickCount() == 2) {
+                    String[] parts = AAView.getSelectionModel().getSelectedItem().getAccessibleText().split("\\|");
+                    System.out.println(parts[1]);
+                    displayPlaylistPane(3,parts[0],parts[1]);
+                }
+            }
+        });
+    }
+
+
+    @FXML
+    private  void loadPlaylistImage(){
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Add image");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image","*.png","*.jpeg","*.jpg"));
+        File file=fileChooser.showOpenDialog(new Stage());
+        String path=null;
+        path=file.getAbsolutePath();
+        FileInputStream inputstream = null;
+        try {
+            System.out.println(path);
+            inputstream = new FileInputStream(path);
+        } catch (FileNotFoundException e) {
+        }
+        Image iv = new Image(inputstream);
+
+        playlistImage.setImage(iv);
+
+    }
+
+
+
 
 
     private void updateListView(ListView<Button>listView,Map<String,String>map){
@@ -99,9 +227,7 @@ public class PlayerController implements Initializable {
             try{
                 imageView = new ImageView(
                         new Image(entry.getValue())
-
                 );
-
             }catch (Exception ex){
                 imageView=new ImageView();
             }finally {
@@ -110,13 +236,92 @@ public class PlayerController implements Initializable {
                 b.setContentDisplay(ContentDisplay.TOP);
                 b.setOnAction(new EventHandler<ActionEvent>() {
                     @Override public void handle(ActionEvent event) {
-                        System.out.println(b.getText());
+                        try {
+                            updateTable(3,b.getText());
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
-
                 listView.getItems().add(b);
             }
         }
+    }
+
+
+    public Stage showEditSongWindow(Song s) {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/editSong.fxml"
+                )
+        );
+
+        Stage stage = new Stage(StageStyle.DECORATED);
+        try {
+            stage.setScene(
+                    new Scene(
+                            (Pane) loader.load()
+                    )
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        editSongController controller =
+                loader.<editSongController>getController();
+        controller.initData(s);
+
+        stage.show();
+
+        return stage;
+    }
+
+
+    private void editSong(Song song){
+        showEditSongWindow(song);
+    }
+
+    /**
+     *
+     * @param i 1-all songs 2,regex 3-moods or genres
+     * @param regex regex or mood(genre) if i=1 regex=null
+     * @throws SQLException
+     */
+    private void updateTable(int i,String regex) throws SQLException {
+
+        try {
+            ObservableList<Song> data=null;
+            switch (i){
+                case 1:
+                    data= JDBCConnector.returnSongs();
+                    break;
+                case 2:
+                    displaySongs.toFront();
+                    data=JDBCConnector.returnSongsByRegex(regex);
+                    break;
+                case 3:
+                    displaySongs.toFront();
+                    data=JDBCConnector.returnSongsByMoodOrGenre(regex);
+                    break;
+            }
+            tableOfSongs.setItems(data);
+
+
+            tableOfSongs.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent click) {
+                    if(click.getButton()== MouseButton.SECONDARY){
+                        editSong(tableOfSongs.getSelectionModel().getSelectedItem());
+                    }else if(click.getClickCount()==2){
+                        System.out.println("muzyczka");
+                    }
+                }
+            });
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
@@ -126,6 +331,8 @@ public class PlayerController implements Initializable {
         fileChooser.setTitle("Add new songs");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Audio files","*.mp3","*.3gp","*.flac"));
         files=fileChooser.showOpenMultipleDialog(new Stage());
+        if(files!=null)
+        JDBCConnector.addSongs(files);
 
     }
 
@@ -156,36 +363,64 @@ public class PlayerController implements Initializable {
         }
     }
 
-    private void displayPlaylistPane(String name){
+    /**
+     *
+     * @param i   1-playlist 2-artist 3-album
+     * @param name name of playlist/artist/album
+     * @param image image of -||-
+     */
+    private void displayPlaylistPane(int i,String name,String image){
         displayWithInfo.toFront();
-        info.setText(name+"\n Average rate: "+5+"\n Number of songs: "+1);
+
+        try {
+            imageView.setImage(new Image(new FileInputStream(image)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ObservableList<Song> data=null;
+        switch (i){
+            case 1:
+                break;
+            case 2:
+                try {
+                    data=JDBCConnector.returnByArtist(name);
+                } catch (SQLException e) {
+
+                }
+                break;
+            case 3:
+                try {
+                    data=JDBCConnector.returnByAlbum(name);
+                } catch (SQLException e) {
+
+                }
+                break;
+        }
+        songsOfPlaylist.setItems(data);
+        info.setText(name+"\n  Number of songs: "+data.size());
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for(int i=0;i<6;i++){
-            PlaylistButton button= null;
-            try {
-                button = new PlaylistButton("Playlista"+i);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            PlaylistButton finalButton = button;
-            button.setOnAction(new EventHandler<ActionEvent>() {
-                @Override public void handle(ActionEvent e) {
-                    displayPlaylistPane(finalButton.getText());
-                }
-            });
-            playlisty.getItems().add(button);
-        }
+
         updateListView(moodsListView,Moods.moods);
         updateListView(genresListView, Genres.genres);
 
 
 
-
-
+        title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        artist.setCellValueFactory(new PropertyValueFactory<>("artist"));
+        album.setCellValueFactory(new PropertyValueFactory<>("album"));
+        track.setCellValueFactory(new PropertyValueFactory<>("track"));
+        year.setCellValueFactory(new PropertyValueFactory<>("year"));
+        rate.setCellValueFactory(new PropertyValueFactory<>("rate"));
+        titleP.setCellValueFactory(new PropertyValueFactory<>("title"));
+        artistP.setCellValueFactory(new PropertyValueFactory<>("artist"));
+        albumP.setCellValueFactory(new PropertyValueFactory<>("album"));
+        trackP.setCellValueFactory(new PropertyValueFactory<>("track"));
+        yearP.setCellValueFactory(new PropertyValueFactory<>("year"));
+        rateP.setCellValueFactory(new PropertyValueFactory<>("rate"));
     }
 }
 

@@ -39,6 +39,29 @@
     -fx-alignment:center;
     -fx-text-fill: #edd98b;
 }
+/*buttony*/
+#prevSong{
+    -fx-graphic: url("../images/previous.png");
+}
+#nextSong{
+    -fx-graphic: url("../images/next.png");
+}
+#playpause{
+    -fx-graphic: url("../images/play.png");
+}
+#replaySong{
+    -fx-graphic: url("../images/replay.png");
+}
+#songLyricsButton{
+    -fx-graphic: url("../images/lyrics.png");
+}
+#songInfoButton{
+    -fx-graphic: url("../images/info.png");
+}
+
+
+
+
 /*glowne panele*/
 #moviePane{
     -fx-background-color: linear-gradient(#4D5459,#2D3237);
@@ -80,7 +103,8 @@
 #displayAlbumsArtists,
 #displayWithInfo,
 #displaySongs,
-#mainMusicPane
+#mainMusicPane,
+#createPlaylistPane
 {
     -fx-background-color:linear-gradient(#4D5459,#32373C);
 }
@@ -99,3 +123,65 @@
 {
     -fx-font-size:30px;
 }
+
+.table-view{
+    -fx-background-color: transparent;
+}
+.table-view .column-header .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.table-view .list-cell{
+    -fx-background-color: transparent;
+    -fx-text-fill: #edd98b;
+}
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: #edd98b;
+}
+.table-row-cell{
+    -fx-text-alignment: center;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-pref-height: 40px;
+}
+.table-row-cell:hover{
+    -fx-cursor: hand;
+    -fx-background-color: derive(#edd98b,50%);
+}
+.table-row-cell:hover .table-cell{
+    -fx-text-fill: black;
+}
+
+#displaybutton{
+    -fx-background-color: transparent;
+    -fx-font-size: 30px;
+}
+#displaybutton .button{
+
+    -fx-background-color: grey;
+    -fx-font-size: 15px;
+}
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #edd98b;
+}
+.list-cell :hover {
+
+    -fx-cursor: hand;
+    -fx-text-fill: grey;
+}
+

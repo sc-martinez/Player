@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class File {
+public class FileMedia {
     String name;
     String pathtofile;
     Date date;
