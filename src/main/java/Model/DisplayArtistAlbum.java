@@ -1,19 +1,26 @@
 package Model;
 
+import Controller.EditArtistOrAlbum;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class DisplayArtistAlbum extends AnchorPane {
 
-    public DisplayArtistAlbum(ArtistAlbum a)  {
+    public DisplayArtistAlbum(ArtistAlbum a,int i)  {
         super();
         this.setMinSize(850,140);
         this.setPrefSize(850,140);
@@ -24,6 +31,7 @@ public class DisplayArtistAlbum extends AnchorPane {
             inputstream = new FileInputStream(a.getImage());
             iv = new Image(inputstream);
         } catch (FileNotFoundException | NullPointerException e) {
+            iv=new Image("file:/home/dell/Dokumenty/AGH/Java/Player/src/main/resources/images/default.png");
         }
 
         view=new ImageView(iv);
@@ -42,14 +50,14 @@ public class DisplayArtistAlbum extends AnchorPane {
         name.setTranslateX(200);
         name.setTranslateY(20);
 
-        Button button=new Button("Show more");
+        Button button=new Button("Edit");
         button.setPrefSize(200,100);
         button.setTranslateX(600);
         button.setTranslateY(20);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                showEditArtistAlbumWindow(a,i);
             }
 
         });
@@ -57,5 +65,29 @@ public class DisplayArtistAlbum extends AnchorPane {
         this.setAccessibleText(a.getName()+"|"+a.getImage());
 
 
+    }
+    Stage showEditArtistAlbumWindow(ArtistAlbum a,int i) {
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource(
+                        "/editArtistAlbum.fxml"
+                )
+        );
+
+        Stage stage = new Stage(StageStyle.DECORATED);
+        try {
+            stage.setScene(new Scene((Pane) loader.load()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        EditArtistOrAlbum controller =
+                loader.<EditArtistOrAlbum>getController();
+        controller.initData(a);
+
+        stage.show();
+
+
+        stage.show();
+
+        return stage;
     }
 }

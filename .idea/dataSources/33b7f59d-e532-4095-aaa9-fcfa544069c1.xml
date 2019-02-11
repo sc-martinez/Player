@@ -106,8 +106,8 @@
       <Comment>standard public schema</Comment>
       <StateNumber>351</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2018-12-28.18:06:34.351</IntrospectionTimestamp>
-      <IntrospectionStateNumber>747</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-01-01.21:56:48.975</IntrospectionTimestamp>
+      <IntrospectionStateNumber>779</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -178,12 +178,12 @@
     <table id="26" parent="17" name="album">
       <ObjectId>16420</ObjectId>
       <Owner>dell</Owner>
-      <StateNumber>745</StateNumber>
+      <StateNumber>779</StateNumber>
     </table>
     <table id="27" parent="17" name="artist">
       <ObjectId>16428</ObjectId>
       <Owner>dell</Owner>
-      <StateNumber>747</StateNumber>
+      <StateNumber>762</StateNumber>
     </table>
     <table id="28" parent="17" name="playlist">
       <ObjectId>16398</ObjectId>
@@ -226,34 +226,34 @@
       <StateNumber>745</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="35" parent="26" name="album_pkey">
+    <column id="35" parent="26" name="description">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>779</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <index id="36" parent="26" name="album_pkey">
       <ObjectId>16426</ObjectId>
       <StateNumber>745</StateNumber>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="36" parent="26" name="album_pkey">
+    <key id="37" parent="26" name="album_pkey">
       <ObjectId>16427</ObjectId>
       <StateNumber>745</StateNumber>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>album_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="37" parent="27" name="name">
+    <column id="38" parent="27" name="name">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>747</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="38" parent="27" name="members">
+    <column id="39" parent="27" name="members">
       <Position>2</Position>
-      <DataType>character varying[]|0s</DataType>
-      <StateNumber>747</StateNumber>
-      <TypeId>1015</TypeId>
-    </column>
-    <column id="39" parent="27" name="pastmembers">
-      <Position>3</Position>
       <DataType>character varying[]|0s</DataType>
       <StateNumber>747</StateNumber>
       <TypeId>1015</TypeId>
@@ -284,7 +284,7 @@
     </column>
     <index id="44" parent="27" name="artist_pkey">
       <ObjectId>16434</ObjectId>
-      <StateNumber>747</StateNumber>
+      <StateNumber>762</StateNumber>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>

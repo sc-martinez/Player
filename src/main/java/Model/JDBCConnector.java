@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.List;
 
+import static java.lang.Math.negateExact;
 import static java.lang.Math.toIntExact;
 
 public class JDBCConnector {
@@ -175,23 +176,41 @@ public class JDBCConnector {
             System.out.println(ex.getMessage());
         }
     }
+    public static String[] returnGenreMood(String path,String gm){
+        ResultSet rs=null;
+        Array genresmoods=null;
+        String[] g=null;
+        String SQL="SELECT "+gm+" from songs WHERE path=?";
+        try {
+            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
+            preparedStatement.setString(1,path);
+            rs=preparedStatement.executeQuery();
+            while (rs.next()) {
+                genresmoods = rs.getArray(gm.toUpperCase());
+                if(genresmoods!=null)
+                g = (String[]) genresmoods.getArray();
+            }
+        }catch (SQLException ex){
+        }
+        return g;
+    }
 
     public static ObservableList<Song> returnSongs() throws SQLException {
 
-        String SQL = "Select title,artist,album,year,rate,track from songs";
+        String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs";
         return returndata(SQL);
     }
 
     public static ObservableList<Song> returnSongsByRegex(String regex) throws SQLException {
         regex = regex.toLowerCase();
-        String SQL = "Select title,artist,album,year,rate,track from songs WHERE LOWER(title) LIKE '%" + regex + "%'OR " +
+        String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE LOWER(title) LIKE '%" + regex + "%'OR " +
                 "LOWER(artist) LIKE '%" + regex + "%' OR LOWER(album) LIKE '%" + regex + "%'";
         return returndata(SQL);
     }
 
     public static ObservableList<Song> returnSongsByMoodOrGenre(String regex) throws SQLException {
 
-        String SQL = "Select title,artist,album,year,rate,track from songs WHERE '" + regex + "'=ANY(moods) OR '" + regex +
+        String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE '" + regex + "'=ANY(moods) OR '" + regex +
                 "'=ANY(genre)";
         return returndata(SQL);
     }
@@ -203,11 +222,15 @@ public class JDBCConnector {
 
         ObservableList<Song> data =
                 FXCollections.observableArrayList();
-        while (rs.next()) {
-            ObservableList<Song> row = FXCollections.observableArrayList();
-            data.add(new Song(rs.getString(1), rs.getString(2),
-                    rs.getString(3), rs.getString(4),
-                    rs.getInt(5), rs.getString(6)));
+        try {
+            while (rs.next()) {
+                ObservableList<Song> row = FXCollections.observableArrayList();
+                data.add(new Song.SongBuilder(rs.getString(7)).title(rs.getString(1)).artist(rs.getString(2)).
+                        album(rs.getString(3)).year(rs.getString(4)).rate(rs.getInt(5)).
+                        track(rs.getString(6)).text(rs.getString(8)).image(rs.getString(9)).build());
+            }
+        }catch (Exception ex){
+            System.out.println("Return data   "+ ex.getMessage());
         }
         return data;
     }
@@ -230,7 +253,7 @@ public class JDBCConnector {
 =====================================================
  */
 public static ObservableList<Album> returnAlbums() throws SQLException {
-    String SQL = "SELECT name,image,year,label,artist FROM album ";
+    String SQL = "SELECT name,image,year,label,artist,description FROM album ";
     ResultSet rs = null;
     Statement stmt = conn.createStatement();
     rs = stmt.executeQuery(SQL);
@@ -238,15 +261,47 @@ public static ObservableList<Album> returnAlbums() throws SQLException {
             FXCollections.observableArrayList();
     while (rs.next()) {
         data.add(new Album(rs.getString(1),rs.getString(2),rs.getInt(3),
-                rs.getString(4),rs.getString(5)));
+                rs.getString(4),rs.getString(5),rs.getString(6)));
     }
     return data;
 }
     public static ObservableList<Song> returnByAlbum(String album) throws SQLException {
 
-        String SQL = "Select title,artist,album,year,rate,track from songs WHERE album='" + album + "'";
+        String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE album='" + album + "'";
         return returndata(SQL);
     }
+    public static void updateAlbum(String image,String name,int year,String artist,String description,String label,String oldname){
+        System.out.println(oldname);
+        System.out.println(image);
+    String SQL="UPDATE album SET image=?,name=?,artist=?,year=?,description=?,label=? WHERE name=? ";
+        try{
+            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
+            preparedStatement.setString(1,image);
+            preparedStatement.setString(2,name);
+            preparedStatement.setString(3,artist);
+            preparedStatement.setInt(4,year);
+            preparedStatement.setString(5,description);
+            preparedStatement.setString(6,label);
+            preparedStatement.setString(7,oldname);
+            preparedStatement.executeUpdate();
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static String returnImage(String album){
+        String SQL="SELECT image FROM album WHERE name=?";
+        String a=null;
+        try{
+            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
+            preparedStatement.setString(1,album);
+            ResultSet rs=preparedStatement.executeQuery();
+            rs.next();
+            a=rs.getString(1);
+        }catch (Exception ex){
+        }
+        return a;
+    }
+
 
 
 /*====================================================
@@ -254,7 +309,7 @@ public static ObservableList<Album> returnAlbums() throws SQLException {
 ======================================================
  */
     public static ObservableList<Artist> returnArtists() throws SQLException {
-        String SQL = "SELECT name,image,members,pastmembers,webstie,youtubewebsite,description FROM artist ";
+        String SQL = "SELECT name,image,webstie,youtubewebsite,description FROM artist ";
         ResultSet rs = null;
         Statement stmt = conn.createStatement();
         rs = stmt.executeQuery(SQL);
@@ -262,14 +317,57 @@ public static ObservableList<Album> returnAlbums() throws SQLException {
         ObservableList<Artist> data =
                 FXCollections.observableArrayList();
         while (rs.next()) {
-            data.add(new Artist(rs.getString(1), rs.getString(2), rs.getArray(3),
-                    rs.getArray(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+            data.add(new Artist(rs.getString(1), rs.getString(2),
+                    rs.getString(3), rs.getString(4), rs.getString(5)));
         }
         return data;
     }
     public static ObservableList<Song> returnByArtist(String artist) throws SQLException {
 
-        String SQL = "Select title,artist,album,year,rate,track from songs WHERE artist='" + artist + "'";
+        String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE artist='" + artist + "'";
         return returndata(SQL);
     }
+    public static void updateArtist(String image,String name,String website,String youtubewebsite,String description,String oldname){
+        String SQL="UPDATE artist SET image=?,name=?,webstie=?,youtubewebsite=?,description=? WHERE name=?";
+        try{
+            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
+            preparedStatement.setString(1,image);
+            preparedStatement.setString(2,name);
+            preparedStatement.setString(3,website);
+            preparedStatement.setString(4,youtubewebsite);
+            preparedStatement.setString(5,description);
+            preparedStatement.setString(6,oldname);
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+//============================================================
+//=========================UPDATE SONG========================
+//============================================================
+
+    public static void updateSong(String title,String artist, String album,String[] genre,String[] moods,String text,String image,String path){
+        String SQL="UPDATE songs SET title=?,artist=?,album=?,genre=?,moods=?,text=?,image=? WHERE path=?";
+
+        try {
+            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
+            preparedStatement.setString(1,title);
+            preparedStatement.setString(2,artist);
+            preparedStatement.setString(3,album);
+            preparedStatement.setArray(4,conn.createArrayOf("text",genre));
+            preparedStatement.setArray(5,conn.createArrayOf("text",moods));
+            preparedStatement.setString(6,text);
+            preparedStatement.setString(7,image);
+            preparedStatement.setString(8,path);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 }
+
+
+

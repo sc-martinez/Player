@@ -1,8 +1,13 @@
 package Model;
 
-public class ArtistAlbum {
+import com.jfoenix.controls.JFXTextField;
+import javafx.geometry.Pos;
+import javafx.scene.layout.AnchorPane;
+
+public abstract class ArtistAlbum {
     protected String name;
     protected String image;
+    protected JFXTextField Jname;
 
     public ArtistAlbum(String name, String image) {
         this.name = name;
@@ -10,7 +15,16 @@ public class ArtistAlbum {
         if(image==null){
             this.image="/home/dell/Dokumenty/AGH/Java/Player/src/main/resources/images/default.png";
         }
+
     }
+
+    public void initData(AnchorPane anchorPane){
+        Jname=new JFXTextField(name);
+        Jname.setPrefWidth(464.);
+        Jname.setAlignment(Pos.CENTER);
+        anchorPane.getChildren().add(Jname);
+    };
+    public abstract void save();
 
     public String getName() {
         return name;
@@ -27,4 +41,5 @@ public class ArtistAlbum {
     public void setImage(String image) {
         this.image = image;
     }
+
 }

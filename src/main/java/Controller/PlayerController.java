@@ -29,17 +29,21 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 
+import javax.annotation.processing.Generated;
+import javax.script.Bindings;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 public class PlayerController implements Initializable {
+    private LinkedList<Song>songs=new LinkedList<>();
 
     @FXML
     private Button musicbutton,moviebutton,exit,displayAlbums,displayArtists,displaySongsButton,
@@ -48,14 +52,14 @@ public class PlayerController implements Initializable {
     @FXML
     private AnchorPane moviePane,musicPane,musicMenu,movieMenu,
             displayWithInfo,displayAlbumsArtists,displaySongs,mainMusicPane,
-            createPlaylistPane;
+            createPlaylistPane,musicBar;
 
     @FXML
     private ListView<Button>playlisty;
     @FXML
     private ListView<DisplayArtistAlbum>AAView;
     @FXML
-    private Label info,printSongInfo;
+    private Label info,printSongInfo,numberOfSongs;
 
     @FXML
     private JFXListView<Button>genresListView,moodsListView;
@@ -75,6 +79,8 @@ public class PlayerController implements Initializable {
     private ImageView playlistImage,imageView;
     @FXML
     private Pane songPane;
+    @FXML
+    private Button replaySong;
 
     @FXML
     private void search(){
@@ -85,7 +91,7 @@ public class PlayerController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    Mp3player mp3player=null;
 
 
 
@@ -149,7 +155,7 @@ public class PlayerController implements Initializable {
             if(artists!=null){
                 AAView.getItems().clear();
                 for(Artist artist:artists){
-                    AAView.getItems().add(new DisplayArtistAlbum(artist));
+                    AAView.getItems().add(new DisplayArtistAlbum(artist,1));
                 }
             }
         } catch (SQLException e) {
@@ -158,13 +164,9 @@ public class PlayerController implements Initializable {
         AAView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent click) {
-
-                if (click.getClickCount() == 2) {
                     String[] parts = AAView.getSelectionModel().getSelectedItem().getAccessibleText().split("\\|");
                     System.out.println(parts[1]);
                     displayPlaylistPane(2,parts[0],parts[1]);
-
-                }
             }
         });
     }
@@ -175,7 +177,7 @@ public class PlayerController implements Initializable {
             if(albums!=null){
                 AAView.getItems().clear();
                 for(Album album:albums){
-                    AAView.getItems().add(new DisplayArtistAlbum(album));
+                    AAView.getItems().add(new DisplayArtistAlbum(album,2));
                 }
             }
         } catch (SQLException e) {
@@ -184,12 +186,8 @@ public class PlayerController implements Initializable {
         AAView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent click) {
-
-                if (click.getClickCount() == 2) {
                     String[] parts = AAView.getSelectionModel().getSelectedItem().getAccessibleText().split("\\|");
-                    System.out.println(parts[1]);
                     displayPlaylistPane(3,parts[0],parts[1]);
-                }
             }
         });
     }
@@ -249,10 +247,10 @@ public class PlayerController implements Initializable {
     }
 
 
-    public Stage showEditSongWindow(Song s) {
+    public Stage showEditSongWindow(Song s,String fxml) {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
-                        "/editSong.fxml"
+                        fxml
                 )
         );
 
@@ -277,9 +275,12 @@ public class PlayerController implements Initializable {
     }
 
 
+
+
     private void editSong(Song song){
-        showEditSongWindow(song);
+        showEditSongWindow(song,"/editSong.fxml");
     }
+
 
     /**
      *
@@ -306,14 +307,22 @@ public class PlayerController implements Initializable {
             }
             tableOfSongs.setItems(data);
 
-
             tableOfSongs.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent click) {
                     if(click.getButton()== MouseButton.SECONDARY){
                         editSong(tableOfSongs.getSelectionModel().getSelectedItem());
                     }else if(click.getClickCount()==2){
-                        System.out.println("muzyczka");
+                        songs.clear();
+                        for(Song d:tableOfSongs.getItems()){
+                            songs.add(d);
+                        }mp3player.loadSongs(songs);
+                            try {
+                                mp3player.setCurrentSong(tableOfSongs.getSelectionModel().getFocusedIndex());
+                            }catch (NullPointerException ex){
+                                System.out.println("Brak plików");
+                            }
+
                     }
                 }
             });
@@ -375,7 +384,7 @@ public class PlayerController implements Initializable {
         try {
             imageView.setImage(new Image(new FileInputStream(image)));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("obrazek   "+e.getMessage());
         }
         ObservableList<Song> data=null;
         switch (i){
@@ -396,13 +405,75 @@ public class PlayerController implements Initializable {
                 }
                 break;
         }
+
         songsOfPlaylist.setItems(data);
-        info.setText(name+"\n  Number of songs: "+data.size());
+        if (!songs.isEmpty())songs.clear();
+        songs.addAll(data);
+        mp3player.loadSongs(songs);
+        songsOfPlaylist.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent click) {
+                if(click.getButton()== MouseButton.SECONDARY){
+                    editSong(songsOfPlaylist.getSelectionModel().getSelectedItem());
+                }else if(click.getClickCount()==2){
+                    try {
+                        mp3player.setCurrentSong(songsOfPlaylist.getSelectionModel().getSelectedIndex());
+                    }catch (NullPointerException ex){
+                        System.out.println("Brak plików");
+                    }
+                }
+            }
+        });
+        info.setText(name);
+        numberOfSongs.setText("Number of songs: "+data.size());
     }
 
+    @FXML
+    public void play_pause_song(ActionEvent event){
+        mp3player.play_pause();
+    }
+    @FXML
+    public void next_song(){
+        mp3player.next();
+    }
+    @FXML
+    public void prev_song(){
+        mp3player.prev();
+    }
+    @FXML
+    public void autoreplay(){
+        boolean replaybutton=mp3player.setAutoreplay();
+        if(replaybutton){
+            replaySong.setStyle("-fx-background-color: white");
+            replaySong.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent mouseEvent) {
+                    replaySong.setStyle("-fx-background-color: #4F5459");
+                }
+            });
+            replaySong.setOnMouseExited(new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent mouseEvent) {
+                    replaySong.setStyle("-fx-background-color: white");
+                }
+            });
+        }else{
+            replaySong.setStyle("-fx-background-color: #2D3237");
+            replaySong.setOnMouseEntered(new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent mouseEvent) {
+                    replaySong.setStyle("-fx-background-color: #4F5459");
+                }
+            });
+            replaySong.setOnMouseExited(new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent mouseEvent) {
+                    replaySong.setStyle("-fx-background-color: #2D3237");
+                }
+            });
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        mp3player=new Mp3player();
+        mp3player.loadBar(musicBar);
 
         updateListView(moodsListView,Moods.moods);
         updateListView(genresListView, Genres.genres);

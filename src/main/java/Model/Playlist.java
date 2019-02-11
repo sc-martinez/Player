@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.scene.layout.AnchorPane;
+
 import java.util.LinkedList;
 
 public class Playlist extends ArtistAlbum {
@@ -10,5 +12,16 @@ public class Playlist extends ArtistAlbum {
 
     public Playlist(String name, String image) {
         super(name, image);
+    }
+
+    @Override
+    public void initData(AnchorPane anchorPane) {
+
+    }
+
+
+    @Override
+    public void save() {
+
     }
 }

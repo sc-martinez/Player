@@ -1,10 +1,11 @@
 package Model;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Moods {
-    public static Map <String ,String > moods=new HashMap<>();
+    public static Map <String ,String > moods=new LinkedHashMap<>();
     static {
         moods.put("chill", "images/moods/chill.jpg");
         moods.put("dinner", "images/moods/dinner.jpeg");

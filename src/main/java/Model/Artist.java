@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.scene.layout.AnchorPane;
+
 import java.sql.Array;
 import java.sql.SQLException;
 
@@ -11,14 +13,9 @@ public class Artist extends ArtistAlbum {
     private String youtubewebsite;
     private String description;
 
-    public Artist(String name, String image, Array members, Array pastmembers, String website, String youtubewebsite, String description) {
+    public Artist(String name, String image, String website, String youtubewebsite, String description) {
         super(name,image);
-        try {
-            this.members = (String[]) members.getArray();
-            this.pastmembers = (String[])pastmembers.getArray();
-        } catch (SQLException | NullPointerException e) {
-            System.out.println("nieudana konwersja");
-        }
+
         this.website = website;
         this.youtubewebsite = youtubewebsite;
         this.description = description;
@@ -30,14 +27,6 @@ public class Artist extends ArtistAlbum {
 
     public void setMembers(String[] members) {
         this.members = members;
-    }
-
-    public String[] getPastmembers() {
-        return pastmembers;
-    }
-
-    public void setPastmembers(String[] pastmembers) {
-        this.pastmembers = pastmembers;
     }
 
     public String getWebsite() {
@@ -62,5 +51,19 @@ public class Artist extends ArtistAlbum {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public void initData(AnchorPane pane) {
+        super.initData(pane);
+        System.out.println("Edycja artysty");
+
+
+
+    }
+
+    @Override
+    public void save() {
+
     }
 }
