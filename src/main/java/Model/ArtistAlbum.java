@@ -1,15 +1,15 @@
 package Model;
 
 import com.jfoenix.controls.JFXTextField;
+import javafx.beans.Observable;
 import javafx.geometry.Pos;
 import javafx.scene.layout.AnchorPane;
 
 public abstract class ArtistAlbum {
     protected String name;
     protected String image;
-    protected JFXTextField Jname;
-
-    public ArtistAlbum(String name, String image) {
+    JFXTextField Jname;
+    ArtistAlbum(String name, String image) {
         this.name = name;
         this.image = image;
         if(image==null){

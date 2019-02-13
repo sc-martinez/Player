@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.PlayerController;
+import View.Player;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.Array;
@@ -8,7 +10,6 @@ import java.sql.SQLException;
 public class Artist extends ArtistAlbum {
 
     private String[]members;
-    private String[]pastmembers;
     private String website;
     private String youtubewebsite;
     private String description;

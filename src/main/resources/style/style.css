@@ -145,6 +145,10 @@
     -fx-background-color: transparent;
     -fx-text-fill: #edd98b;
 }
+.table-view .list-cell{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
 .table-view .column-header-background{
     -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
 }
@@ -172,6 +176,12 @@
     -fx-background-color: derive(#edd98b,50%);
 }
 .table-row-cell:hover .table-cell{
+    -fx-text-fill: black;
+}
+.table-row-cell:selected{
+    -fx-background-color: derive(#edd98b,50%);
+}
+.table-row-cell:selected .table-cell{
     -fx-text-fill: black;
 }
 
@@ -221,8 +231,9 @@
     -fx-background-color: #edd98b;
     -fx-text-fill: black;
 }
-
-
+#additionalInfo{
+    -fx-font-size: 20px;
+}
 
 /*music Bar*/
 .titleAndArtist{
@@ -247,3 +258,4 @@
 .jfx-slider > .animated-thumb {
     -fx-background-color: #edd98b;
 }
+

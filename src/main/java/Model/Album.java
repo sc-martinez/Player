@@ -1,6 +1,8 @@
 package Model;
 
+import Controller.PlayerController;
 import com.jfoenix.controls.JFXTextField;
+import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -19,7 +21,8 @@ public class Album extends ArtistAlbum{
     private String label;
     private String artist;
     private String description;
-    public Album(String name, String image, int year, String label, String artist,String description) {
+
+    public Album(String name, String image, int year, String label, String artist, String description) {
         super(name,image);
         this.year = year;
         this.label = label;
@@ -107,6 +110,7 @@ public class Album extends ArtistAlbum{
     @Override
     public void save() {
         JDBCConnector.updateAlbum(image,Jname.getText(),chooseYear.getValue(),JXartist.getText(),JXdescription.getText(),JXlabel.getText(),name);
-        
+
     }
+
 }

@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -23,6 +24,7 @@
             <Button fx:id="exit" layoutX="1152.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="75.0" prefWidth="128.0" />
             <TextField fx:id="searchField" layoutX="266.0" layoutY="14.0" prefHeight="40.0" prefWidth="274.0" />
             <Button fx:id="searchButton" layoutX="548.0" layoutY="1.0" mnemonicParsing="false" onAction="#search" prefHeight="74.0" prefWidth="128.0" />
+            <Label fx:id="additionalInfo" layoutX="689.0" layoutY="14.0" prefHeight="50.0" prefWidth="373.0" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="moviePane" layoutX="256.0" layoutY="73.0" prefHeight="727.0" prefWidth="1024.0">
@@ -113,13 +115,20 @@
             </StackPane>
             <AnchorPane fx:id="musicBar" layoutY="600.0" prefHeight="127.0" prefWidth="1024.0">
                <children>
-                  <Button fx:id="songInfoButton" layoutX="484.0" layoutY="28.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
-                  <Button fx:id="songLyricsButton" layoutX="521.0" layoutY="28.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" />
                   <ImageView fitHeight="64.0" fitWidth="65.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="prevSong" layoutX="646.0" layoutY="26.0" minWidth="45.0" mnemonicParsing="false" onAction="#prev_song" prefHeight="32.0" prefWidth="45.0" />
                   <Button fx:id="playpause" layoutX="707.0" layoutY="26.0" minWidth="45.0" mnemonicParsing="false" onAction="#play_pause_song" prefHeight="32.0" prefWidth="45.0" />
                   <Button fx:id="nextSong" layoutX="767.0" layoutY="26.0" minWidth="45.0" mnemonicParsing="false" onAction="#next_song" prefHeight="32.0" prefWidth="45.0" />
                   <Button fx:id="replaySong" layoutX="829.0" layoutY="26.0" minWidth="45.0" mnemonicParsing="false" onAction="#autoreplay" prefHeight="32.0" prefWidth="45.0" />
+                  <Button fx:id="youtubeButton" layoutX="512.0" layoutY="26.0" mnemonicParsing="false" onAction="#watchOnYoutube">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/youtube.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

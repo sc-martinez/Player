@@ -190,12 +190,17 @@ public class Song  {
             text=conncector.returnLyrics();
             textArea.setText(text);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            //do nothing
         }
 
         return true;
 
 
+    }
+    public void watchOnYoutube(){
+        YoutubeLauncher youtubeLauncher=new YoutubeLauncher(this);
+        Thread t=new Thread(youtubeLauncher);
+        t.start();
     }
 
 

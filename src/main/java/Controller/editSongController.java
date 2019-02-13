@@ -13,9 +13,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
@@ -61,6 +65,22 @@ public class editSongController implements Initializable {
         }
         Image image=new Image("file:"+s.getImage());
         imageSong.setImage(image);
+        imageSong.setStyle("-fx-cursor: hand");
+        imageSong.setOnMouseClicked((MouseEvent event)->{
+            try {
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image","*.png","*.jpeg","*.jpg"));
+                File file=fileChooser.showOpenDialog(new Stage());
+                String path=file.getAbsolutePath();
+                FileInputStream inputstream =new FileInputStream(path);
+                Image iv = new Image(inputstream);
+                s.setImage(path);
+                imageSong.setImage(iv);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        });
 
     }
     @Override
@@ -82,7 +102,7 @@ public class editSongController implements Initializable {
         String[]genres= genresList.getSelectionModel().getSelectedItems().toArray(new String[0]);
         String[]moods=moodsList.getSelectionModel().getSelectedItems().toArray(new String[0]);
         JDBCConnector.updateSong(titleSong.getText(),artistSong.getText(),albumSong.getText(),genres,moods,
-               lirycsSong.getText(),imageSong.getImage().getUrl(),path );
+               lirycsSong.getText(),s.getImage(),path );
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
     }

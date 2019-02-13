@@ -4,6 +4,9 @@ package Controller;
 import Model.*;
 import com.jfoenix.controls.JFXListView;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.ColorInput;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -23,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -35,6 +40,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.LinkedList;
@@ -42,7 +48,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-public class PlayerController implements Initializable {
+public class PlayerController implements Initializable,Observer {
     private LinkedList<Song>songs=new LinkedList<>();
 
     @FXML
@@ -59,7 +65,7 @@ public class PlayerController implements Initializable {
     @FXML
     private ListView<DisplayArtistAlbum>AAView;
     @FXML
-    private Label info,printSongInfo,numberOfSongs;
+    private Label info,printSongInfo,numberOfSongs,additionalInfo;
 
     @FXML
     private JFXListView<Button>genresListView,moodsListView;
@@ -81,6 +87,7 @@ public class PlayerController implements Initializable {
     private Pane songPane;
     @FXML
     private Button replaySong;
+
 
     @FXML
     private void search(){
@@ -190,6 +197,7 @@ public class PlayerController implements Initializable {
                     displayPlaylistPane(3,parts[0],parts[1]);
             }
         });
+
     }
 
 
@@ -318,9 +326,11 @@ public class PlayerController implements Initializable {
                             songs.add(d);
                         }mp3player.loadSongs(songs);
                             try {
+                                musicBar.setVisible(true);
+                                additionalInfo.setText("");
                                 mp3player.setCurrentSong(tableOfSongs.getSelectionModel().getFocusedIndex());
                             }catch (NullPointerException ex){
-                                System.out.println("Brak plików");
+                                additionalInfo.setText("Songs not found");
                             }
 
                     }
@@ -417,9 +427,11 @@ public class PlayerController implements Initializable {
                     editSong(songsOfPlaylist.getSelectionModel().getSelectedItem());
                 }else if(click.getClickCount()==2){
                     try {
+                        musicBar.setVisible(true);
+                        additionalInfo.setText("");
                         mp3player.setCurrentSong(songsOfPlaylist.getSelectionModel().getSelectedIndex());
                     }catch (NullPointerException ex){
-                        System.out.println("Brak plików");
+                        additionalInfo.setText("Songs not found");
                     }
                 }
             }
@@ -434,11 +446,19 @@ public class PlayerController implements Initializable {
     }
     @FXML
     public void next_song(){
-        mp3player.next();
+        try{
+            mp3player.next();
+        }catch (NullPointerException ex){
+
+        }
     }
     @FXML
     public void prev_song(){
-        mp3player.prev();
+        try {
+            mp3player.prev();
+        }catch (NullPointerException ex){
+
+        }
     }
     @FXML
     public void autoreplay(){
@@ -469,15 +489,24 @@ public class PlayerController implements Initializable {
             });
         }
     }
+    @FXML
+    private void watchOnYoutube() {
+        try {
+            mp3player.watchYoutube();
+        }catch (Exception e){
 
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        musicBar.setVisible(false);
         mp3player=new Mp3player();
         mp3player.loadBar(musicBar);
 
         updateListView(moodsListView,Moods.moods);
         updateListView(genresListView, Genres.genres);
 
+        mp3player.register(this);
 
 
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -493,6 +522,15 @@ public class PlayerController implements Initializable {
         yearP.setCellValueFactory(new PropertyValueFactory<>("year"));
         rateP.setCellValueFactory(new PropertyValueFactory<>("rate"));
     }
+
+    @Override
+    public void update(int name) {
+            tableOfSongs.getSelectionModel().select(name);
+            tableOfSongs.scrollTo(name);
+    }
+
+
+
 }
 
 

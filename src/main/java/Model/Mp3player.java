@@ -1,7 +1,7 @@
 package Model;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import com.jfoenix.controls.JFXSlider;
@@ -9,21 +9,17 @@ import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaException;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.controlsfx.control.Rating;
 
-import javax.swing.text.html.ImageView;
 
-public class Mp3player {
+public class Mp3player implements Subject{
     @FXML
     AnchorPane anchorPane;
 
@@ -37,6 +33,7 @@ public class Mp3player {
 
     private LinkedList<Song>songs=new LinkedList<>();
     private int index;
+    private int length;
     private boolean autoreplay=false;
 
     public Mp3player(){
@@ -44,6 +41,8 @@ public class Mp3player {
     }
     public void loadBar(AnchorPane pane){
         anchorPane=pane;
+
+
 
         titleAndArtist=new Label();
         titleAndArtist.getStyleClass().add("titleAndArtist");
@@ -105,6 +104,7 @@ public class Mp3player {
 
     public void loadSongs(LinkedList<Song>songs){
         this.songs=songs;
+        length=songs.size();
     }
 
     public boolean setCurrentSong(int i)throws NullPointerException{
@@ -113,21 +113,26 @@ public class Mp3player {
         if(player!=null)player.stop();
         this.index=i;
         titleAndArtist.setText(songs.get(index).getTitle()+"\n"+songs.get(index).getArtist());
-
+        Image image=new Image("file:"+songs.get(index).getImage());
+        imageView=new ImageView(image);
+        imageView.setFitWidth(64.);
+        imageView.setFitHeight(64.);
+        AnchorPane.setTopAnchor(imageView, 25.0);
+        AnchorPane.setLeftAnchor(imageView, 50.0);
+        anchorPane.getChildren().add(imageView);
         File file = new File(songs.get(index).getPath());
-        String path=file.toURI().toASCIIString();
-        try {
-            media = new Media(path);
-            player = new MediaPlayer(media);
-            play();
-        }catch (MediaException ex){
-            System.out.println(songs.size());
-            songs.remove(index);
-            if(songs.size()==0)throw new  NullPointerException() ;
-            index--;
-            if(index<0)index=songs.size()-1;
+        boolean exists=file.exists();
+        if(!exists){
+            if(length==0)throw new  NullPointerException() ;
+            length--;
             next();
+            return false;
         }
+        String path=file.toURI().toASCIIString();
+        media = new Media(path);
+        player = new MediaPlayer(media);
+        notifyAllObservers(index);
+        play();
 
         player.currentTimeProperty().addListener(new InvalidationListener() {
             @Override
@@ -159,6 +164,7 @@ public class Mp3player {
 
 
     private void play(){
+        player.setVolume(volumeSlider.getValue()/100.);
         player.play();
     }
     public void next(){
@@ -179,6 +185,29 @@ public class Mp3player {
             }else {
                 player.play();
             }
+        }
+    }
+
+    private ArrayList<Observer> observers=new ArrayList<>();
+    @Override
+    public void register(Observer o) {
+        observers.add(o);
+        System.out.println("Dodano obserwatora: "+o);
+    }
+    public void watchYoutube(){
+        songs.get(index).watchOnYoutube();
+        player.pause();
+    }
+
+    @Override
+    public void unregister(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyAllObservers(int s) {
+        for (Observer observer:observers){
+            observer.update(s);
         }
     }
 }
