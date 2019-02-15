@@ -18,6 +18,7 @@ Funkcjonalności których nie udało się na czas zrobić, ale pojawią sie wk
 -tworzenie własnych playlist<br/>
 -usuwanie piosenek<br/>
 -wyswietlanie wideo z Youtube w oknie aplikacji<br/>
+-poprawa wyglądu, dodanie kilku ikon, poprawa kodu i jego czytelności
 
 UML bazy danych piosenek:
 ![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/baza/playerbaza.png)
