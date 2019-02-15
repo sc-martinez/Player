@@ -1,4 +1,4 @@
-Music Player
+<strong>Music Player</strong>
 
 Wykorzystane technologie:<br/>
 Java<br/>
@@ -22,10 +22,10 @@ Funkcjonalności których nie udało się na czas zrobić, ale pojawią sie wk
 UML bazy danych piosenek:
 ![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/baza/playerbaza.png)
 
-Wykorzystane wzorce:
-MVC
-Observer -podświetlanie w tabeli danej piosenki 
-Builder - w klasie Song
+<strong>Wykorzystane wzorce:</strong><br/>
+MVC<br/>
+Observer -podświetlanie w tabeli danej piosenki <br/>
+Builder - w klasie Song<br/>
 
 
 Screenshoty z aplikacji:<br/>
