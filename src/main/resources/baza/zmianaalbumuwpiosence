@@ -1,0 +1,31 @@
+
+
+DROP TRIGGER IF EXISTS zmiana_albumu_w_piosence ON songs;
+
+CREATE OR REPLACE FUNCTION dodaj_album()
+RETURNS TRIGGER AS
+$$
+DECLARE nname TEXT;
+DECLARE oldname TEXT;
+BEGIN
+	SELECT new.album INTO nname;
+	SELECT old.album INTO oldname;
+	IF (SELECT 1 WHERE nname NOT IN(SELECT name FROM album)) THEN
+		INSERT INTO album (name) VALUES (nname);
+	ELSE 
+		iF(SELECT 1 WHERE oldname IN(SELECT album FROM songs)) THEN
+			RETURN null;
+		ELSE 
+			DELETE FROM album WHERE name=oldname;
+		END IF;
+		
+	END IF;
+	RETURN null; 
+	
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE TRIGGER zmiana_albumu_w_piosence
+AFTER UPDATE ON songs
+FOR EACH ROW
+EXECUTE PROCEDURE dodaj_album();
