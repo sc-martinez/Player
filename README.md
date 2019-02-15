@@ -1,10 +1,10 @@
 Music Player
 
-Wykorzystane technologie:
-Java
-JavaFX
-PostgresSQL
-CSS
+Wykorzystane technologie:<br/><br/>
+Java<br/>
+JavaFX<br/>
+PostgresSQL<br/>
+CSS<br/>
 
 Funkcjonalności aplikacji:
 -odtwarzanie muzyki<br/>
