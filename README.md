@@ -19,6 +19,10 @@ Funkcjonalności których nie udało się na czas zrobić, ale pojawią sie wk
 -usuwanie piosenek<br/>
 -wyswietlanie wideo z Youtube w oknie aplikacji<br/>
 
+UML bazy danych piosenek:
+![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/baza/playerbaza.png)
+
+
 Screenshoty z aplikacji:<br/>
 
 ![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/screenshots/1.png)
