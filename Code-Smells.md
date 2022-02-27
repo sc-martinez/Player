@@ -1,15 +1,15 @@
 # Deuda técnica en el código fuente - Identificando Code-Smells 💩
 
-## _Bloaters_
+# _Bloaters_
 
-### # Métodos largos 🍝
+## # Métodos largos 🍝
 Métodos mayores a diez (10) líneas de código, normalmente en estilo spaguetti 🍝 (Yummi!).
 
-#### *Ejemplo*
+### *Ejemplo*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
-##### Encontrado en Controller/editSongController.java
+#### Encontrado en Controller/editSongController.java
 ```java
 void initData(Song s) {
         this.s=s;
@@ -59,7 +59,7 @@ void initData(Song s) {
 
 </details></p>
 
-#### Reporte de ocurrencias - Top 10
+### Reporte de ocurrencias - Top 10
 
 |  Paquete   |       Clase        |   Método   |        Líneas        |
 |:----------:|:------------------:|:-----------:|:--------------------:|
@@ -74,7 +74,7 @@ void initData(Song s) {
 |   Model    |     Mp3Player      |   loadBar  |  Line 42 -  Line 92  |
 
 
-### # Clase Enorme 🏰
+## # Clase Enorme 🏰
 Clases que tienen demasiadas responsabilidades, normalmente evidencia de baja cohesión. 
 
 ### *Ejemplo*
@@ -455,7 +455,7 @@ public class JDBCConnector {
 ```
 </details></p>
 
-#### Reporte de ocurrencias - Top 10
+### Reporte de ocurrencias - Top 10
 
 |  Paquete   |      Clase       |
 |:----------:|:----------------:|
@@ -463,7 +463,7 @@ public class JDBCConnector {
 |   Model    |       Song       |
 | Controller | PlayerController |
 
-### # Métodos con Gran cantidad de párametros 🎛️
+## # Métodos con Gran cantidad de párametros 🎛️
 Métodos con una innecesaria cantidad de parametros, más de tres o cuatro cómo norma general de normalidad. 
 ### *Ejemplo*
 <details><summary>Desplegar ejemplo</summary>
@@ -492,19 +492,19 @@ Métodos con una innecesaria cantidad de parametros, más de tres o cuatro cómo
 ```
 </details></p>
 
-#### Reporte de ocurrencias - Top 10
+### Reporte de ocurrencias - Top 10
 | Paquete |       Clase        | Método |
 |:-------:|:------------------:|:------:|
 |  Model  | JDBCConnector |  add   |
 
 
-### # Primitive Obsession 🐒
+## # Primitive Obsession 🐒
 El uso de constantes o tipos primitivos para decodificar información estructurada. 
 ### *Ejemplo*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
-#### Encontrado en Model/JDBCConnector.java, notar el uso de la variable i
+### Encontrado en Model/JDBCConnector.java, notar el uso de la variable i
 ```java
 /**
      *
@@ -561,7 +561,7 @@ El uso de constantes o tipos primitivos para decodificar información estructura
 ```
 </details></p>
 
-#### Reporte de ocurrencias - Top 10
+### Reporte de ocurrencias - Top 10
 
 |  Paquete   |       Clase        |   Método   |
 |:----------:|:------------------:|:-----------:|
@@ -570,15 +570,15 @@ El uso de constantes o tipos primitivos para decodificar información estructura
 |   Model    |  JDBCConnector  |   addSongs  | 
 
 
-## Object-Orientation Abusers
-### # Switch Statements 🔃
+# Object-Orientation Abusers
+## # Switch Statements 🔃
 Sequenciación de `if` statements o `Switch-Case`. Normalmente evidencia de abstracciones pobres o de comportamientos múltiples mal manejados.
 
 ### *Ejemplo*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
-#### Encontrado en Model/PlayerController.java
+### Encontrado en Model/PlayerController.java
 ```java
 public void handleButton(ActionEvent event){
 
@@ -619,7 +619,7 @@ public void handleButton(ActionEvent event){
 ```
 </details></p>
 
-#### Reporte de ocurrencias - Top 10
+### Reporte de ocurrencias - Top 10
 
 |  Paquete   |       Clase        |   Método   |
 |:-------:|:------------------:|:------:|
@@ -630,7 +630,7 @@ public void handleButton(ActionEvent event){
 |  Controller  | JDBCConnector |  addSongs   |
 |  Controller  | PlayerController |  setCurrentSong   |
 
-### # Refused Bequest 🐈=?🪑
+## # Refused Bequest 🐈=?🪑
 Discrepancias en la lógica de clases que implementan superclases, fallas en la lógica de la abstracción de la superclase.
 Común de verse discrepancias semánticas, ¿ El gato hereda el comportamiento de la silla, sólo porque tiene patas ? 
 
@@ -663,7 +663,7 @@ A pesar de que comparten estas cáracteristicas se debe trabajar en la verbosida
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
-#### Encontrado en Model/AzlyricsConncector y Model/LyricsConnector
+### Encontrado en Model/AzlyricsConncector y Model/LyricsConnector
 ```java
 package Model;
 
@@ -791,14 +791,14 @@ Si el comportamiento de 'LyricsConnector' es solamente por medio de métodos, en
 </details></p>
 
 
-## Código duplicado 👥️️
+## # Código duplicado 👥️️
 Bueno, aquí no hay mucho que explicar, por fuera de una clara violación al principio DRY (Do not repeat yourself).
 
 ### *Ejemplo*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
-#### Encontrado en Controller/editSongController.java - Model/Genres.java
+### Encontrado en Controller/editSongController.java - Model/Genres.java
 ```java
   @Override
 public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -846,7 +846,7 @@ public class Genres {
 ```
 </details></p>
 
-### # Cadenas de conexión cómo parte del código fuente
+## # Cadenas de conexión cómo parte del código fuente
 Por varias razones, muchas relacionadas con seguridad de la información, las credenciales y los detalles de las cadenas de conexión no deben estar expuestas cómo parte de la solución o código fuente. 
 
 Se recomienda utilizar mecanismos de inyección de estas propiedades en tiempo de construcción. 
@@ -855,7 +855,7 @@ Se recomienda utilizar mecanismos de inyección de estas propiedades en tiempo d
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
-#### Encontrado en Model/JDBCConnector.java
+### Encontrado en Model/JDBCConnector.java
 ```java
 public class JDBCConnector {
 
@@ -869,7 +869,7 @@ public class JDBCConnector {
     }
 ```
 
-#### Encontrado en Model/AzlyricsConncector.java
+### Encontrado en Model/AzlyricsConncector.java
 ```java
 public class AzlyricsConncector extends LyricsConnector implements Runnable{
 
@@ -896,13 +896,13 @@ public class AzlyricsConncector extends LyricsConnector implements Runnable{
 
 </details></p>
 
-### # Pocos Comentarios 💬
+## # Pocos Comentarios 💬
 En general a lo largo del proyecto se ven muy pocos comentarios dicientes en medio de la implementación. 
 Gran parte de la deuda técnica en este aspecto, es la ausencia de comentarios y de información general de instalación. 
 
 
 
-## Resultados
+# Resultados
 Se detectan dos clases que acumulan gran parte de la deuda técnica de código fuente, estas son `JDBCConnector` y `PlayerController` que concentrarán la mayor parte de los esfuerzos de refactorización.
 
 En general se encuentran falencias en los principios SOLID, encapsulamiento y segregación de responsabilidades. 
