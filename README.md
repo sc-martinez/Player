@@ -1,43 +1,68 @@
-<strong>Music Player</strong>
+## Recuperando del reproductor de Audio : Un proyecto de Gestión de la deuda técnica - CSDT
+## Resumen
+Este repositorio contiene el resultado de la aplicación de técnicas de gestión de la deuda técnica a un proyecto publico de código legado cómo caso de estudio.
 
-Wykorzystane technologie:<br/>
-Java<br/>
-JavaFX<br/>
-PostgresSQL<br/>
-CSS<br/>
+En esta oportunidad se hará el análisis, gestión y resolución de la deuda técnica a una solución de reproducción de audio construida por un estudiante de ciencias de la computación.
 
-<strong>Funkcjonalności aplikacji:</strong><br/>
--odtwarzanie muzyki<br/>
--segregowanie utworów według gatunku lub nastroju<br/>
--wyszukiwanie utworów według albumu, artysty lub nazwy<br/>
--wyszukiwanie tekstu z strony azlyrics.com<br/>
--możliwość automatycznego połączenia z YouTube i wyświetlenie tam danej piosenki<br/>
-<br/>
+###Objetivo
+Se identificarán las oportunidades de mejora y se implementarán los cambios necesarios en el repositorío relacionado cómo Fork.
 
-Funkcjonalności których nie udało się na czas zrobić, ale pojawią sie wkrótce:<br/>
--tworzenie własnych playlist<br/>
--usuwanie piosenek<br/>
--wyswietlanie wideo z Youtube w oknie aplikacji<br/>
--poprawa wyglądu, dodanie kilku ikon, poprawa kodu i jego czytelności
+![N|Solid](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) Original :  https://github.com/DanielVeB/Player
 
-UML bazy danych piosenek:
-![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/baza/playerbaza.png)
+![N|Solid](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) Fork :  https://github.com/sc-martinez/Player
 
-<strong>Wykorzystane wzorce:</strong><br/>
-MVC<br/>
-Observer -podświetlanie w tabeli danej piosenki <br/>
-Builder - w klasie Song<br/>
+## Detalles técnicos del proyecto
+
+El reproductor de audio utiliza el siguiente stack de tecnología :
+   - [Java 16+](https://www.oracle.com/java/technologies/javase/jdk16-archive-downloads.html)   
+   - [JavaFX 17](https://openjfx.io/) 
+   - [Maven](https://maven.apache.org/) 
+   - [PostgresSQL](https://www.postgresql.org/)
+   - [CSS](https://developer.mozilla.org/es/docs/Web/CSS)
+   - [Docker](https://www.google.com/search?q=docker&oq=docker&aqs=chrome..69i57j69i59j0i271j69i60j69i65l3j69i60.1913j0j7&sourceid=chrome&ie=UTF-8)
+
+## Features
+   - Reproducir musica en formato MP3
+   - Clasificación de canciones por género o estado de ánimo (Mood)
+   - Búsqueda de canciones por álbum, artista o nombre
+   - Búsqueda de letras de las canciones en [Azlyrics](https://www.azlyrics.com/)
+   - la capacidad de conectarse automáticamente a YouTube y mostrar la canción allí
+
+## Muestra de UI
+![img_1.png](Resources/img_1.png)
+
+## Documentación de la solución
+Modelo entidad-relación MER (Original) : 
+  ![img.png](Resources/img.png)
+
+## Instalación
+**Nota de desarrollo**: Pendiente por documentar, hace parte de la deuda-técnica en este punto
+
+- [ ] Ejecutar una instancia local de postgresSQL - Docker
+         
+      cd dockerYamls/PostgreSQL
+      docker-compose up 
+
+- [ ] Crear la Base de datos player <En construcción SQL de migración>    
+- [ ] Ejecutar View/Player con Java SDK 11 con los siguientes parametros de JVM
+
+      --module-path="<mypath>\Java\javafx-sdk-17.0.2\lib" --add-modules=javafx.controls,javafx.fxml 
 
 
-Screenshoty z aplikacji:<br/>
-Strona główna aplikacji
-![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/screenshots/1.png)
-Wyświetlanie albumów. Tak samo wygląda wyświetlanie po artystach.
-![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/screenshots/2.png)
-Przykład wyświetlania piosenek według albumu. W planach jest dodanie obok nazwy albumy buttona będącym odnośnikiem do sklepu empik, do strony z tej albumem aby można było zamówić album.
-![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/screenshots/3.png)
+## Flujo de trabajo
+El trabajo de dividirá siguiendo el siguiente flujo de actividades.
+```mermaid
+graph LR
+A([Identificar Code-Smells]) -- Plan de refactor --> B([Clean-Code y XP])
+B -- Plan de cambios --> C([Cambios en el codigo fuente])
+C -- Feedback -->D
+D -- Pruebas --> C
+B -- Plan de pruebas --> D([Pruebas unitarias])
+```
+## Bitácora
+- ***22- 24 de febrero de 2022***  : Instalación y documentación inicial de la solución, fundación de este repositorio.
+       
+       - Resultados en : README.md
+- ***25-26 de febrero de 2022***  : Identificación de Code-Smells
 
-Przykład edycji piosenki. Możemy przypisać piosence jakie genres i moods do niej pasują, a także wyszukać i wyświetlać tekst.
-Po znalezieniu tekstu zapisujemy je w bazie danych, i na następny raz mamy już tekst bez konieczności ponownego wyszukiwania.
-![Image description](https://github.com/DanielVeB/Player/blob/master/src/main/resources/screenshots/4.png)
-
+       - Resultados en : Code-Smells.md

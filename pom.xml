@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>danielkurosz@student.agh.edu.pl</groupId>
+    <groupId>player</groupId>
     <artifactId>Player</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
@@ -36,6 +36,12 @@
                 <url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
             </repository>
 
+            <repository>
+                <id>snapshots</id>
+                <name>libs-snapshot</name>
+                <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            </repository>
+
     </repositories>
 
     <dependencies>
@@ -58,7 +64,7 @@
         <dependency>
             <groupId>io.github.typhon0</groupId>
             <artifactId>AnimateFX</artifactId>
-            <version>1.2.1-SNAPSHOT</version>
+            <version>1.2.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>

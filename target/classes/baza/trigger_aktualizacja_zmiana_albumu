@@ -1,0 +1,18 @@
+
+DROP TRIGGER IF EXISTS aktualizacja_albumow ON album;
+CREATE OR REPLACE FUNCTION aktualizuj()
+RETURNS TRIGGER AS
+$$
+DECLARE oldname TEXT;
+BEGIN
+	SELECT old.name INTO oldname;
+	UPDATE songs SET album=new.name WHERE album=oldname;
+	RETURN new;
+	
+END;
+$$ LANGUAGE PLpgSQL;
+
+CREATE TRIGGER aktualizacja_albumow
+AFTER UPDATE ON album
+FOR EACH ROW
+EXECUTE PROCEDURE aktualizuj();
