@@ -3,7 +3,7 @@
 En este apartado se hará un análisis de las características Clean code de forma transversal a esta solución. 
 Se determinará la brecha sobre el estado actual, identificando cuáles características se están cumpliendo, en cuáles se encuentran oportunidades de mejora y en respuesta cuáles prácticas XP nos permitirían reducir la brecha. 
 
-##Código enfocado 👓
+## Código enfocado 👓
 
 En Clean-code el código debería ser enfocado y tener un propósito específico en donde la simplicidad es un patrón común. 
 
@@ -398,7 +398,7 @@ Para estos casos es recomendable usar la práctica XP de refactoring para segreg
 
 </p>
 
-##Regla del boy scout 👦🏻
+## Regla del boy scout 👦🏻
 
 Esta característica no se cumple, pues hasta este punto la solución ha sido construida por una sola persona (El autor original).
 Una recomendación en el plan de refactorización sería mantener los principios de Clean Code despues de cada iteración, garantizando que el código fuente mejora en simplicidad, legibilidad y abstracción despues de cada modificación. 
@@ -483,7 +483,7 @@ Esto permitiría mantener un patrón consistente de nombramiento de variables, c
 
 
 
-##Duplicidad 👨‍💼👨‍💼
+## Duplicidad 👨‍💼👨‍💼
 Bueno, aquí no hay mucho que explicar, por fuera de una clara violación al principio DRY (Do not repeat yourself).
 Estos casos ya se habian tratado en el análisis anterior y se habian detectado cómo Code-Smells. 
 ### *Ejemplo*
@@ -543,7 +543,7 @@ Las prácticas XP que nos permiten mitigar el código duplicado, son las relacio
 
 Una constante aplicación de técnicas de refactoring y estrategias de Pair Programming, permitirán tener múltiples visiones en la implementación y evidenciar puntos de repetición que pueden ser abstraidos, generalizados y llevados a métodos o clases de propósito general. 
 
-##Abstracción ⚪ 🟥 🔺
+## Abstracción ⚪ 🟥 🔺
 En el apartado anterior se habian identificado algunos errores de abstracción relacionados con herencia de clases.
 
 
@@ -721,7 +721,7 @@ El diseño simple tiende a disminuir está deuda al máximo, pues no recae en la
 
 
 
-##Testeable 🧪 👁️‍🗨️
+## Testeable 🧪 👁️‍🗨️
 
 La solución actual no es testeable de forma automática, sólo de forma funcional. Por lo que esta característica de Clean Code no se cumple.  
 
@@ -729,7 +729,7 @@ La solución actual no es testeable de forma automática, sólo de forma funcion
 
 Se recomienda implementar una suite de pruebas automatizadas para la solución. Se recomienda implementar pruebas unitarias siguiendo los principios de implementación de pruebas por comportamientos AAA ( Arrange, Act, Assert).
 
-##Principio de menor asombro 😲 ❌
+## Principio de menor asombro 😲 ❌
 En este principio las implementaciones deberían estar en función de su nombre. 
 
 ### *Ejemplo #1*
@@ -860,7 +860,7 @@ Aquí el nombre no se relaciona con la acción final y se está cumpliendo más 
 Se recomienda hacer uso del estándar de codificación, recaer en los principios del diseño simple y realizar operaciones de refactorización acompañados de pruebas unitarias en cada iteración. 
 
 
-##Escalable 📐
+## Escalable 📐
 En general se hace uso de los principios POO y el lenguaje de dominio se utiliza bien. A lo largo de este apartado se han mostrado violaciones a los principios SOLID y DRY cómo oportunidades de mejora inmediatas. 
 
 Se identificaron dos clases Genres y Moods que podrían ser datos de configuración de la solución. 
