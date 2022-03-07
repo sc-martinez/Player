@@ -66,3 +66,7 @@ B -- Plan de pruebas --> D([Pruebas unitarias])
 - ***25-26 de febrero de 2022***  : Identificación de Code-Smells
 
        - Resultados en : Code-Smells.md
+
+- ***05-06 de marzo de 2022***  : Valoración de características de Clean Code y prácticas XP
+
+       - Resultados en : CleanCode-XP-Assessment.md
