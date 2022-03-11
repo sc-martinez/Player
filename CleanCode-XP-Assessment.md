@@ -9,7 +9,7 @@ En Clean-code el código debería ser enfocado y tener un propósito específico
 
 Para el estado actual de la solución, se evidencia que a pesar de que las clases están bien divididas y en teoría los propósitos específicos están bien definidos, aún hay clases extensas en tamaño con multiples propósitos. 
 
-### *Ejemplo #1 JDBC Connector*
+### *Ejemplo # 1 JDBC Connector*
 <details>
 
 <summary>Desplegar ejemplo</summary>
@@ -547,7 +547,7 @@ Una constante aplicación de técnicas de refactoring y estrategias de Pair Prog
 En el apartado anterior se habian identificado algunos errores de abstracción relacionados con herencia de clases.
 
 
-### *Ejemplo #1*
+### *Ejemplo # 1*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
@@ -732,7 +732,7 @@ Se recomienda implementar una suite de pruebas automatizadas para la solución. 
 ## Principio de menor asombro 😲 ❌
 En este principio las implementaciones deberían estar en función de su nombre. 
 
-### *Ejemplo #1*
+### *Ejemplo # 1*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
@@ -867,7 +867,7 @@ Se identificaron dos clases Genres y Moods que podrían ser datos de configuraci
 
 
 
-### *Ejemplo #1*
+### *Ejemplo # 1*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 

@@ -634,7 +634,7 @@ public void handleButton(ActionEvent event){
 Discrepancias en la lógica de clases que implementan superclases, fallas en la lógica de la abstracción de la superclase.
 Común de verse discrepancias semánticas, ¿ El gato hereda el comportamiento de la silla, sólo porque tiene patas ? 
 
-### *Ejemplo #1*
+### *Ejemplo # 1*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
@@ -851,7 +851,7 @@ Por varias razones, muchas relacionadas con seguridad de la información, las cr
 
 Se recomienda utilizar mecanismos de inyección de estas propiedades en tiempo de construcción. 
 
-### *Ejemplo #1*
+### *Ejemplo # 1*
 <details><summary>Desplegar ejemplo</summary>
 <p>
 
