@@ -4,7 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5fd9085-c74a-4835-bbea-94953c653d2d" name="Changes" comment="" />
+    <list default="true" id="d5fd9085-c74a-4835-bbea-94953c653d2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AzLyricsConnector.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MP3PlayerTest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TechnicalDebt -Tests.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestsYoutubeLauncher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Model/AzlyricsConncectorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Model/Mp3playerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Model/YoutubeLauncherTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/YoutubeLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/YoutubeLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/EditArtistOrAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/EditArtistOrAlbum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/editSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/editSongController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Album.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Album.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Artist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/ArtistAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ArtistAlbum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/AzlyricsConncector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/AzlyricsConncector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Genres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Genres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/JDBCConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/JDBCConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/LyricsConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/LyricsConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Moods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Moods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Observer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Playlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/PlaylistButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/PlaylistButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Song$SongBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Song$SongBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Song.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/YoutubeLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/YoutubeLauncher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Player$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +67,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -52,6 +104,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -59,29 +117,111 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\CSDT\CourseProject\Player\Resources" />
+      <recent name="E:\CSDT\CourseProject\Player\src\test\java" />
+      <recent name="E:\CSDT\CourseProject\Player\src\test" />
+      <recent name="E:\CSDT\CourseProject\Player\src\main\java" />
+      <recent name="E:\CSDT\CourseProject\Player\src\main" />
+      <recent name="E:\CSDT\CourseProject\Player\src" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Model" />
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="Model" />
+      <recent name="Tests" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Player" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="View.Player" />
+  <component name="RunManager" selected="JUnit.Mp3playerTest">
+    <configuration name="Mp3playerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Player" />
-      <option name="VM_PARAMETERS" value="--module-path=&quot;C:\Program Files\Java\javafx-sdk-17.0.2\lib&quot; --add-modules=javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="View.*" />
+          <option name="PATTERN" value="Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.Mp3playerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mp3playerTest.loadSongs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Player" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.Mp3playerTest" />
+      <option name="METHOD_NAME" value="loadSongs" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mp3playerTest.next" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Player" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.Mp3playerTest" />
+      <option name="METHOD_NAME" value="next" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mp3playerTest.prev" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Player" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.Mp3playerTest" />
+      <option name="METHOD_NAME" value="prev" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Mp3playerTest.setAutoreplay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Player" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.Mp3playerTest" />
+      <option name="METHOD_NAME" value="setAutoreplay" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Player" />
+        <item itemvalue="JUnit.Mp3playerTest" />
+        <item itemvalue="JUnit.Mp3playerTest.setAutoreplay" />
+        <item itemvalue="JUnit.Mp3playerTest.prev" />
+        <item itemvalue="JUnit.Mp3playerTest.next" />
+        <item itemvalue="JUnit.Mp3playerTest.loadSongs" />
       </list>
     </recent_temporary>
   </component>
@@ -106,5 +246,36 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Model/Mp3playerTest.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Player$AzlyricsConncectorTest_and_1_more.ic" NAME="AzlyricsConncectorTest and 1 more Coverage Results" MODIFIED="1647229823145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Player$YoutubeLauncherTest.ic" NAME="YoutubeLauncherTest Coverage Results" MODIFIED="1647230388068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Player$Tests_in_Player.ic" NAME="Tests in Player Coverage Results" MODIFIED="1647230032641" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Player$AzlyricsConncectorTest.ic" NAME="AzlyricsConncectorTest Coverage Results" MODIFIED="1647230084312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Player$AzlyricsConncectorTest__1_.ic" NAME="AzlyricsConncectorTest (1) Coverage Results" MODIFIED="1647230129124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Player$AzlyricsConncectorTest__2_.ic" NAME="AzlyricsConncectorTest (2) Coverage Results" MODIFIED="1647230298373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Player$YoutubeLauncherTest__1_.ic" NAME="YoutubeLauncherTest (1) Coverage Results" MODIFIED="1647230259486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Player$Mp3playerTest.ic" NAME="Mp3playerTest Coverage Results" MODIFIED="1647233644553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Model.*</FILTER>
+    </SUITE>
   </component>
 </project>

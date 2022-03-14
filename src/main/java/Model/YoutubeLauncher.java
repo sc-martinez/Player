@@ -12,11 +12,11 @@ import java.net.URI;
 
 public class YoutubeLauncher implements Runnable{
     Song s;
-    YoutubeLauncher(Song s){
+    public YoutubeLauncher(Song s){
         this.s=s;
     }
 
-    String  findYoutubeLink() {
+    public String findYoutubeLink() {
         String key="AIzaSyDbdxrTsdm5pgTHnHJKHV9XPEuwv6IaOjg";
         String qry="youtube/"+s.getArtist().toLowerCase().replaceAll(" ","")+"/"+s.getTitle().toLowerCase().replaceAll(" ","");
         System.out.println(qry);
