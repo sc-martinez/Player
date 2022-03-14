@@ -253,7 +253,7 @@ El proyecto tiene una dependencia fuerte con los componentes de JavaFx.
 
 Estos al ser componentes de UI utilizan multi-threading para la mayoría de sus invocaciones, en este caso para generar pruebas en componentes de FX se utiliza la suite de pruebas de unidad TestFX la cual permite crear entornos virtuales de pruebas para componentes FX, lo que habilita las pruebas de las unidades de negocio y middle-ware de la aplicación. 
 
-###Repositorio de la suite de pruebas 
+### Repositorio de la suite de pruebas 
 
 - [FX Tests](https://github.com/TestFX/TestFX)
 

@@ -63,11 +63,11 @@ B -- Plan de pruebas --> D([Pruebas unitarias])
 - ***22- 24 de febrero de 2022***  : Instalación y documentación inicial de la solución, fundación de este repositorio.
   - Resultados en : [README](https://github.com/sc-martinez/Player/blob/master/README.md)
 - ***25-26 de febrero de 2022***  : Identificación de Code-Smells
-  - Resultados en : [Code-Smells](https://github.com/sc-martinez/Player/blob/d3a97e4f23e05eda15d7482ed3af06950a2d6b50/Code-Smells.md)
+  - Resultados en : [Code-Smells](https://github.com/sc-martinez/Player/blob/master/Code-Smells.md)
 
 - ***05-06 de marzo de 2022***  : Valoración de características de Clean Code y prácticas XP
   
-  - Resultados en : [CleanCode-XP-Assessment.md]( https://github.com/sc-martinez/Player/blob/d3a97e4f23e05eda15d7482ed3af06950a2d6b50/CleanCode-XP-Assessment.md )
+  - Resultados en : [CleanCode-XP-Assessment.md]( https://github.com/sc-martinez/Player/blob/master/CleanCode-XP-Assessment.md )
 
 - ***09-13 de marzo de 2022***  : Creación de pruebas de unidad, análisis de deuda técnica de pruebas. 
-  - Resultados en : [TechnicalDebt -Model.Tests.md](https://github.com/sc-martinez/Player/blob/46c7d1bea27ed6126ecb92b1548fc03571126037/TechnicalDebt%20-Tests.md)
+  - Resultados en : [TechnicalDebt -Model.Tests.md](https://github.com/sc-martinez/Player/blob/master/TechnicalDebt%20-Tests.md)
