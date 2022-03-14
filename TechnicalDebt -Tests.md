@@ -250,9 +250,7 @@ public class Mp3playerTest extends ApplicationTest {
 
 El proyecto tiene una dependencia fuerte con los componentes de JavaFx. 
 
-Estos al ser componentes de UI utilizan multi-threading para la mayoría de sus invocaciones, en este caso para generar pruebas en componentes de FX se utiliza la suite de pruebas de unidad TestFX.
-
-La cual permite crear entornos virtuales de pruebas para componentes FX, lo que habilita las pruebas de las unidades de negocio y middle-ware de la aplicación. 
+Estos al ser componentes de UI utilizan multi-threading para la mayoría de sus invocaciones, en este caso para generar pruebas en componentes de FX se utiliza la suite de pruebas de unidad TestFX la cual permite crear entornos virtuales de pruebas para componentes FX, lo que habilita las pruebas de las unidades de negocio y middle-ware de la aplicación. 
 
 ###Repositorio de la suite de pruebas 
 
@@ -260,3 +258,9 @@ La cual permite crear entornos virtuales de pruebas para componentes FX, lo que 
 
 
 ## Propuestas 
+
+Otro punto focal de la aplicación está en el JDBCConnector, para realizar pruebas de esta clase será necesario emular el ambiente de persistencia de la aplicación.
+Para ello se implementará el uso de Mocks de JDBC con Mockito, esto permitirá simular ambientes de persistencia y mocks de objectos DAOs de forma simple. 
+
+[Mockito Project](https://site.mockito.org/)
+
