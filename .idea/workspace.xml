@@ -5,55 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5fd9085-c74a-4835-bbea-94953c653d2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AzLyricsConnector.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MP3PlayerTest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TechnicalDebt -Tests.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestsYoutubeLauncher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Model/AzlyricsConncectorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Model/Mp3playerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Model/YoutubeLauncherTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/YoutubeLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/YoutubeLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/EditArtistOrAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/EditArtistOrAlbum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/editSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/editSongController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Album.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Album.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Artist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/ArtistAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ArtistAlbum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/AzlyricsConncector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/AzlyricsConncector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DisplayArtistAlbum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Genres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Genres.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/JDBCConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/JDBCConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/LyricsConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/LyricsConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Moods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Moods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Mp3player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Mp3player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Observer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Playlist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/PlaylistButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/PlaylistButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Song$SongBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Song$SongBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Song.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Subject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/YoutubeLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/YoutubeLauncher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/Player$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/View/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TechnicalDebt -Tests.md" beforeDir="false" afterPath="$PROJECT_DIR$/TechnicalDebt -Tests.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
