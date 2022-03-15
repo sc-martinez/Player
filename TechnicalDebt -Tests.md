@@ -350,7 +350,7 @@ Se prueban integraciones externas con servicios de reproducción de videos de Yo
 
 ![img_1.png](AllTests.png)
 
-### Resumen acumulado de Coverage de la suite implementada
+### Resumen acumulado de Coverage de la suite implementada 
 
 Se logra cubrir un total del 55% de las clases, con una cobertura general del 42% de la funcionalidad de la aplicación, se excluyen modelos no utilizados y aquellos que se dedican exclusivamente a actividades de persistencia JDBC.
 
@@ -376,20 +376,20 @@ Estos al ser componentes de UI utilizan multi-threading para la mayoría de sus 
 - [FX Tests](https://github.com/TestFX/TestFX)
 
 
-## Propuestas 
+## Propuestas  📝
 En contraposición a la libreria de JafaFx, se recomienda, para mantener el producto en el tiempo, incluir una secuencia de pasos de pruebas funcionales que complementen estas pruebas de unidad.
 
-### Algunas limitaciones
+### Algunas limitaciones ✍️
 
 JavaFx sólo puede verificar la composición de interfaces gráficas a nivel estructural, a nivel de orquestación de eventos, pero palidece a la hora de hacer una verificación de UX y emular alguos escenarios que sólo pueden ser verificados vía pruebas funcionales cómo por ejemplo : La reproducción de audio de la canción seleccionada, la funcionalidad de repetición del autoreplay, el comportamiento circular de la lista de reproducción .
 
-### Trabajo futuro 
+### Trabajo futuro  ⏱️
 
 Otro punto focal de la aplicación está en el JDBCConnector, para realizar pruebas de esta clase será necesario emular el ambiente de persistencia de la aplicación.
 Para ello se implementará el uso de Mocks de JDBC con Mockito, esto permitirá simular ambientes de persistencia y mocks de objectos DAOs de forma simple. 
 
 [Mockito Project](https://site.mockito.org/)
 
-### Recomendaciones finales
+### Recomendaciones finales 🕵️
 
 Se recomienda con alta prioridad, desacoplar el concepto de modelo de las interfaces Gráficas AnchorPane, esto permitirá reproducir mas funcionalidades de forma programatica y mejorara la testeabilidad general del producto de software. 
