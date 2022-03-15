@@ -26,50 +26,47 @@ Por lo tanto se propone realizar la implementación de pruebas de unidad para al
 <p>
 
 #### Encontrado en test/Model/Model.YoutubeLauncherTest.java
+
 ```java
 
-import Model.Song;
-import Model.YoutubeLauncher;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+public class Model.YoutubeLauncherTest{
 
-public class Model.YoutubeLauncherTest {
-
-    @Test
-    public void findYoutubeLinkWhenSongExists() {
+@Test
+public void findYoutubeLinkWhenSongExists(){
         //Arrange
-        Song s = new Song
-                .SongBuilder("")
-                .album("meteora")
-                .artist("Linkin Park")
-                .title("In The End")
-                .build();
-        YoutubeLauncher yb = new YoutubeLauncher(s);
+        Song s=new Song
+        .SongBuilder("")
+        .album("meteora")
+        .artist("Linkin Park")
+        .title("In The End")
+        .build();
+        YoutubeLauncher yb=new YoutubeLauncher(s);
         //Act
-        String result = yb.findYoutubeLink();
+        String result=yb.findYoutubeLink();
         //Assert
         assertNotNull(result);
-    }
+        }
 
-    @Test
-    public void findYoutubeLinkWhenSongNotExists() {
+@Test
+public void findYoutubeLinkWhenSongNotExists(){
         //Arrange
-        Song s = new Song
-                .SongBuilder("")
-                .album("unknown")
-                .artist("unknown")
-                .title("1231asdazsdasdasd12w112312312312@!@##")
-                .build();
-        YoutubeLauncher yb = new YoutubeLauncher(s);
+        Song s=new Song
+        .SongBuilder("")
+        .album("unknown")
+        .artist("unknown")
+        .title("1231asdazsdasdasd12w112312312312@!@##")
+        .build();
+        YoutubeLauncher yb=new YoutubeLauncher(s);
         //Act
-        String result = yb.findYoutubeLink();
+        String result=yb.findYoutubeLink();
         //Assert
         assertNull(result);
-    }
+        }
 
 
-}
+        }
 ```
 
 </details></p>
@@ -85,35 +82,36 @@ public class Model.YoutubeLauncherTest {
 <p>
 
 #### Encontrado en test/Model/AzlyricsConncectortest.java
+
 ```java
-import Model.AzlyricsConncector;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class Model.AzlyricsConncectorTest {
+public class Model.AzlyricsConncectorTest{
 
-    @Test
-    public void returnLyricsWhenSongExists() {
+@Test
+public void returnLyricsWhenSongExists(){
         //Arrange
-        AzlyricsConncector connector = new AzlyricsConncector("linkinpark", "In The End");
+        AzlyricsConncector connector=new AzlyricsConncector("linkinpark","In The End");
         //Act
         connector.run();
         //Assert
         assertNotNull(connector.returnLyrics());
-    }
+        }
 
-    @Test
-    public void returnLyricsWhenSongNoExists() {
+@Test
+public void returnLyricsWhenSongNoExists(){
         //Arrange
-        AzlyricsConncector connector = new AzlyricsConncector("linkinpark", "123123asdasfasdfasd");
+        AzlyricsConncector connector=new AzlyricsConncector("linkinpark","123123asdasfasdfasd");
         //Act
         connector.run();
         //Assert
         assertNull(connector.returnLyrics());
-    }
+        }
 
-}
+        }
 ```
 
 </details></p>
@@ -129,9 +127,10 @@ public class Model.AzlyricsConncectorTest {
 <p>
 
 #### Encontrado en test/Model/Mp3playerTest.java
+
 ```java
 
-package Model;
+package ModelTests;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -142,8 +141,6 @@ import org.testfx.framework.junit.ApplicationTest;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -156,7 +153,7 @@ public class Mp3playerTest extends ApplicationTest {
     @Override
     public void start(Stage stage) {
         pane = new AnchorPane();
-        stage.setScene(new Scene( pane
+        stage.setScene(new Scene(pane
                 , 100, 100));
         stage.show();
     }
@@ -177,11 +174,13 @@ public class Mp3playerTest extends ApplicationTest {
                 .build();
         LinkedList<Song> songs = new LinkedList<Song>(List.of(new Song[]{sa, sb}));
         Mp3player mp3 = new Mp3player();
-        Platform.runLater( new Thread(()-> {
+        Platform.runLater(new Thread(() -> {
             mp3.loadBar(pane);
             mp3.loadSongs(songs);
             //Throws exception due that file extension does not exists, but the song is queued into the player
-            assertThrows(NullPointerException.class, ()-> { mp3.setCurrentSong(0); });
+            assertThrows(NullPointerException.class, () -> {
+                mp3.setCurrentSong(0);
+            });
         }));
     }
 
@@ -196,11 +195,13 @@ public class Mp3playerTest extends ApplicationTest {
                 .build();
         LinkedList<Song> songs = new LinkedList<Song>(List.of(new Song[]{sa}));
         Mp3player mp3 = new Mp3player();
-        Platform.runLater( new Thread(()-> {
+        Platform.runLater(new Thread(() -> {
             mp3.loadBar(pane);
             mp3.loadSongs(songs);
             //Throws exception due that file extension does not exists, but the song is queued into the player
-            assertThrows(NullPointerException.class, ()-> { mp3.next(); });
+            assertThrows(NullPointerException.class, () -> {
+                mp3.next();
+            });
         }));
 
     }
@@ -215,11 +216,13 @@ public class Mp3playerTest extends ApplicationTest {
                 .build();
         LinkedList<Song> songs = new LinkedList<Song>(List.of(new Song[]{sa}));
         Mp3player mp3 = new Mp3player();
-        Platform.runLater( new Thread(()-> {
+        Platform.runLater(new Thread(() -> {
             mp3.loadBar(pane);
             mp3.loadSongs(songs);
             //Throws exception due that file extension does not exists, but the song is queued into the player
-            assertThrows(NullPointerException.class, ()-> { mp3.prev(); });
+            assertThrows(NullPointerException.class, () -> {
+                mp3.prev();
+            });
         }));
     }
 
@@ -232,7 +235,7 @@ public class Mp3playerTest extends ApplicationTest {
                 .title("Breaking The Habit")
                 .build();
         Mp3player mp3 = new Mp3player();
-        Platform.runLater( new Thread(()-> {
+        Platform.runLater(new Thread(() -> {
             mp3.loadBar(pane);
             //Throws exception due that file extension does not exists, but the song is queued into the player
             assertTrue(mp3.setAutoreplay());

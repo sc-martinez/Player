@@ -16,8 +16,9 @@ Para el estado actual de la solución, se evidencia que a pesar de que las clase
 <p>
 
 #### Encontrado en Model/JDBCConnector.java
+
 ```java
-package Model;
+package ModelTests;
 
 import com.mpatric.mp3agic.*;
 import javafx.collections.FXCollections;
@@ -77,7 +78,7 @@ public class JDBCConnector {
                     System.out.println("id3v2");
                     ID3v2 id3v2Tag = mp3file.getId3v2Tag();
                     add(id3v2Tag.getTitle(), file.getAbsolutePath(), mp3file.getLengthInSeconds(), id3v2Tag.getArtist(),
-                            id3v2Tag.getAlbum(), id3v2Tag.getTrack(), id3v2Tag.getYear().substring(0,4), id3v2Tag.getLyrics());
+                            id3v2Tag.getAlbum(), id3v2Tag.getTrack(), id3v2Tag.getYear().substring(0, 4), id3v2Tag.getLyrics());
 
                     artist = id3v2Tag.getArtist();
                     album = id3v2Tag.getAlbum();
@@ -194,21 +195,22 @@ public class JDBCConnector {
             System.out.println(ex.getMessage());
         }
     }
-    public static String[] returnGenreMood(String path,String gm){
-        ResultSet rs=null;
-        Array genresmoods=null;
-        String[] g=null;
-        String SQL="SELECT "+gm+" from songs WHERE path=?";
+
+    public static String[] returnGenreMood(String path, String gm) {
+        ResultSet rs = null;
+        Array genresmoods = null;
+        String[] g = null;
+        String SQL = "SELECT " + gm + " from songs WHERE path=?";
         try {
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,path);
-            rs=preparedStatement.executeQuery();
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, path);
+            rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 genresmoods = rs.getArray(gm.toUpperCase());
-                if(genresmoods!=null)
+                if (genresmoods != null)
                     g = (String[]) genresmoods.getArray();
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
         }
         return g;
     }
@@ -247,8 +249,8 @@ public class JDBCConnector {
                         album(rs.getString(3)).year(rs.getString(4)).rate(rs.getInt(5)).
                         track(rs.getString(6)).text(rs.getString(8)).image(rs.getString(9)).build());
             }
-        }catch (Exception ex){
-            System.out.println("Return data   "+ ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Return data   " + ex.getMessage());
         }
         return data;
     }
@@ -259,11 +261,6 @@ public class JDBCConnector {
 ====================PLAYLIST==========================
 ======================================================
  */
-
-
-
-
-
 
 
     /*===================================================
@@ -278,48 +275,50 @@ public class JDBCConnector {
         ObservableList<Album> data =
                 FXCollections.observableArrayList();
         while (rs.next()) {
-            data.add(new Album(rs.getString(1),rs.getString(2),rs.getInt(3),
-                    rs.getString(4),rs.getString(5),rs.getString(6)));
+            data.add(new Album(rs.getString(1), rs.getString(2), rs.getInt(3),
+                    rs.getString(4), rs.getString(5), rs.getString(6)));
         }
         return data;
     }
+
     public static ObservableList<Song> returnByAlbum(String album) throws SQLException {
 
         String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE album='" + album + "'";
         return returndata(SQL);
     }
-    public static void updateAlbum(String image,String name,int year,String artist,String description,String label,String oldname){
+
+    public static void updateAlbum(String image, String name, int year, String artist, String description, String label, String oldname) {
         System.out.println(oldname);
         System.out.println(image);
-        String SQL="UPDATE album SET image=?,name=?,artist=?,year=?,description=?,label=? WHERE name=? ";
-        try{
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,image);
-            preparedStatement.setString(2,name);
-            preparedStatement.setString(3,artist);
-            preparedStatement.setInt(4,year);
-            preparedStatement.setString(5,description);
-            preparedStatement.setString(6,label);
-            preparedStatement.setString(7,oldname);
+        String SQL = "UPDATE album SET image=?,name=?,artist=?,year=?,description=?,label=? WHERE name=? ";
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, image);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, artist);
+            preparedStatement.setInt(4, year);
+            preparedStatement.setString(5, description);
+            preparedStatement.setString(6, label);
+            preparedStatement.setString(7, oldname);
             preparedStatement.executeUpdate();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }
-    public static String returnImage(String album){
-        String SQL="SELECT image FROM album WHERE name=?";
-        String a=null;
-        try{
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,album);
-            ResultSet rs=preparedStatement.executeQuery();
+
+    public static String returnImage(String album) {
+        String SQL = "SELECT image FROM album WHERE name=?";
+        String a = null;
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, album);
+            ResultSet rs = preparedStatement.executeQuery();
             rs.next();
-            a=rs.getString(1);
-        }catch (Exception ex){
+            a = rs.getString(1);
+        } catch (Exception ex) {
         }
         return a;
     }
-
 
 
     /*====================================================
@@ -340,24 +339,26 @@ public class JDBCConnector {
         }
         return data;
     }
+
     public static ObservableList<Song> returnByArtist(String artist) throws SQLException {
 
         String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE artist='" + artist + "'";
         return returndata(SQL);
     }
-    public static void updateArtist(String image,String name,String website,String youtubewebsite,String description,String oldname){
-        String SQL="UPDATE artist SET image=?,name=?,webstie=?,youtubewebsite=?,description=? WHERE name=?";
-        try{
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,image);
-            preparedStatement.setString(2,name);
-            preparedStatement.setString(3,website);
-            preparedStatement.setString(4,youtubewebsite);
-            preparedStatement.setString(5,description);
-            preparedStatement.setString(6,oldname);
+
+    public static void updateArtist(String image, String name, String website, String youtubewebsite, String description, String oldname) {
+        String SQL = "UPDATE artist SET image=?,name=?,webstie=?,youtubewebsite=?,description=? WHERE name=?";
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, image);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, website);
+            preparedStatement.setString(4, youtubewebsite);
+            preparedStatement.setString(5, description);
+            preparedStatement.setString(6, oldname);
             preparedStatement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -366,19 +367,19 @@ public class JDBCConnector {
 //=========================UPDATE SONG========================
 //============================================================
 
-    public static void updateSong(String title,String artist, String album,String[] genre,String[] moods,String text,String image,String path){
-        String SQL="UPDATE songs SET title=?,artist=?,album=?,genre=?,moods=?,text=?,image=? WHERE path=?";
+    public static void updateSong(String title, String artist, String album, String[] genre, String[] moods, String text, String image, String path) {
+        String SQL = "UPDATE songs SET title=?,artist=?,album=?,genre=?,moods=?,text=?,image=? WHERE path=?";
 
         try {
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,title);
-            preparedStatement.setString(2,artist);
-            preparedStatement.setString(3,album);
-            preparedStatement.setArray(4,conn.createArrayOf("text",genre));
-            preparedStatement.setArray(5,conn.createArrayOf("text",moods));
-            preparedStatement.setString(6,text);
-            preparedStatement.setString(7,image);
-            preparedStatement.setString(8,path);
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, title);
+            preparedStatement.setString(2, artist);
+            preparedStatement.setString(3, album);
+            preparedStatement.setArray(4, conn.createArrayOf("text", genre));
+            preparedStatement.setArray(5, conn.createArrayOf("text", moods));
+            preparedStatement.setString(6, text);
+            preparedStatement.setString(7, image);
+            preparedStatement.setString(8, path);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -506,15 +507,16 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
 
 }
 ```
-```java
-package Model;
 
-import java.util.HashMap;
+```java
+package ModelTests;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Genres {
-    public static Map<String ,String > genres=new LinkedHashMap<>();
+    public static Map<String, String> genres = new LinkedHashMap<>();
+
     static {
         genres.put("rock", "images/genres/rock.jpg");
         genres.put("R&B", "images/genres/R&B.jpg");
@@ -581,8 +583,9 @@ Esto es una violación a los principios de Interface Segregation y Liskov Substi
 <p>
 
 ### Encontrado en Model/DisplayArtistAlbum.java - Model/Genres.java
+
 ```java
-package Model;
+package ModelTests;
 
 import Controller.EditArtistOrAlbum;
 import javafx.event.ActionEvent;
@@ -604,21 +607,21 @@ import java.io.IOException;
 
 public class DisplayArtistAlbum extends AnchorPane {
 
-    public DisplayArtistAlbum(ArtistAlbum a,int i)  {
+    public DisplayArtistAlbum(ArtistAlbum a, int i) {
         super();
-        this.setMinSize(850,140);
-        this.setPrefSize(850,140);
+        this.setMinSize(850, 140);
+        this.setPrefSize(850, 140);
         FileInputStream inputstream = null;
-        Image iv=null;
-        ImageView view=null;
+        Image iv = null;
+        ImageView view = null;
         try {
             inputstream = new FileInputStream(a.getImage());
             iv = new Image(inputstream);
         } catch (FileNotFoundException | NullPointerException e) {
-            iv=new Image("file:/home/dell/Dokumenty/AGH/Java/Player/src/main/resources/images/default.png");
+            iv = new Image("file:/home/dell/Dokumenty/AGH/Java/Player/src/main/resources/images/default.png");
         }
 
-        view=new ImageView(iv);
+        view = new ImageView(iv);
         view.setId("displayImage");
         view.setFitHeight(132);
         view.setFitWidth(132);
@@ -627,30 +630,31 @@ public class DisplayArtistAlbum extends AnchorPane {
         this.setId("displaybutton");
         view.setTranslateX(0);
         view.setTranslateX(0);
-        Label name=new Label(a.getName());
+        Label name = new Label(a.getName());
         this.getChildren().add(name);
         name.setPrefHeight(100);
         name.setMaxWidth(300);
         name.setTranslateX(200);
         name.setTranslateY(20);
 
-        Button button=new Button("Edit");
-        button.setPrefSize(200,100);
+        Button button = new Button("Edit");
+        button.setPrefSize(200, 100);
         button.setTranslateX(600);
         button.setTranslateY(20);
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                showEditArtistAlbumWindow(a,i);
+                showEditArtistAlbumWindow(a, i);
             }
 
         });
         this.getChildren().add(button);
-        this.setAccessibleText(a.getName()+"|"+a.getImage());
+        this.setAccessibleText(a.getName() + "|" + a.getImage());
 
 
     }
-    Stage showEditArtistAlbumWindow(ArtistAlbum a,int i) {
+
+    Stage showEditArtistAlbumWindow(ArtistAlbum a, int i) {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
                         "/editArtistAlbum.fxml"
@@ -737,13 +741,14 @@ En este principio las implementaciones deberían estar en función de su nombre.
 <p>
 
 ### Encontrado en Controller/editSongController.java
+
 ```java
 package Controller;
 
-import Model.Genres;
-import Model.JDBCConnector;
-import Model.Moods;
-import Model.Song;
+import ModelTests.Genres;
+import ModelTests.JDBCConnector;
+import ModelTests.Moods;
+import ModelTests.Song;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -766,22 +771,23 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class editSongController implements Initializable {
-@FXML
-private JFXTextField titleSong,artistSong,albumSong;
+    @FXML
+    private JFXTextField titleSong, artistSong, albumSong;
 
     @FXML
-    private ListView<String>genresList,moodsList;
+    private ListView<String> genresList, moodsList;
     @FXML
     private ImageView imageSong;
     @FXML
     private JFXTextArea lirycsSong;
     @FXML
     private Button saveButton;
-    private String path="";
+    private String path = "";
     private Song s;
+
     void initData(Song s) {
-        this.s=s;
-        path=s.getPath();
+        this.s = s;
+        path = s.getPath();
         List<String> genreList = new LinkedList<String>(Genres.genres.keySet());
         List<String> moodList = new LinkedList<String>(Moods.moods.keySet());
         titleSong.setText(s.getTitle());
@@ -789,30 +795,30 @@ private JFXTextField titleSong,artistSong,albumSong;
         albumSong.setText(s.getAlbum());
         lirycsSong.setText(s.getText());
 
-        String[]genres=JDBCConnector.returnGenreMood(s.getPath(),"genre");
-        if(genres!=null) {
+        String[] genres = JDBCConnector.returnGenreMood(s.getPath(), "genre");
+        if (genres != null) {
             for (String genre : genres) {
                 int index = genreList.indexOf(genre);
                 genresList.getSelectionModel().select(index);
             }
         }
-        String[]moods=JDBCConnector.returnGenreMood(s.getPath(),"moods");
-        if(moods!=null) {
+        String[] moods = JDBCConnector.returnGenreMood(s.getPath(), "moods");
+        if (moods != null) {
             for (String mood : moods) {
                 int index = moodList.indexOf(mood);
                 moodsList.getSelectionModel().select(index);
             }
         }
-        Image image=new Image("file:"+s.getImage());
+        Image image = new Image("file:" + s.getImage());
         imageSong.setImage(image);
         imageSong.setStyle("-fx-cursor: hand");
-        imageSong.setOnMouseClicked((MouseEvent event)->{
+        imageSong.setOnMouseClicked((MouseEvent event) -> {
             try {
                 FileChooser fileChooser = new FileChooser();
-                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image","*.png","*.jpeg","*.jpg"));
-                File file=fileChooser.showOpenDialog(new Stage());
-                String path=file.getAbsolutePath();
-                FileInputStream inputstream =new FileInputStream(path);
+                fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image", "*.png", "*.jpeg", "*.jpg"));
+                File file = fileChooser.showOpenDialog(new Stage());
+                String path = file.getAbsolutePath();
+                FileInputStream inputstream = new FileInputStream(path);
                 Image iv = new Image(inputstream);
                 s.setImage(path);
                 imageSong.setImage(iv);
@@ -823,13 +829,14 @@ private JFXTextField titleSong,artistSong,albumSong;
         });
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        for(String name:Moods.moods.keySet()){
+        for (String name : Moods.moods.keySet()) {
             moodsList.getItems().add(name);
         }
-        for (String name: Genres.genres.keySet()){
+        for (String name : Genres.genres.keySet()) {
             genresList.getItems().add(name);
         }
         moodsList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -837,18 +844,20 @@ private JFXTextField titleSong,artistSong,albumSong;
 
 
     }
+
     @FXML
-    private void save(){
-        String[]genres= genresList.getSelectionModel().getSelectedItems().toArray(new String[0]);
-        String[]moods=moodsList.getSelectionModel().getSelectedItems().toArray(new String[0]);
-        JDBCConnector.updateSong(titleSong.getText(),artistSong.getText(),albumSong.getText(),genres,moods,
-               lirycsSong.getText(),s.getImage(),path );
+    private void save() {
+        String[] genres = genresList.getSelectionModel().getSelectedItems().toArray(new String[0]);
+        String[] moods = moodsList.getSelectionModel().getSelectedItems().toArray(new String[0]);
+        JDBCConnector.updateSong(titleSong.getText(), artistSong.getText(), albumSong.getText(), genres, moods,
+                lirycsSong.getText(), s.getImage(), path);
         Stage stage = (Stage) saveButton.getScene().getWindow();
         stage.close();
     }
+
     @FXML
-    private void find_lyrics(){
-       s.findLyrics(lirycsSong);
+    private void find_lyrics() {
+        s.findLyrics(lirycsSong);
     }
 }
 ```
@@ -872,15 +881,16 @@ Se identificaron dos clases Genres y Moods que podrían ser datos de configuraci
 <p>
 
 ### Encontrado en Controller/Genres.java
-```java
-package Model;
 
-import java.util.HashMap;
+```java
+package ModelTests;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Genres {
-    public static Map<String ,String > genres=new LinkedHashMap<>();
+    public static Map<String, String> genres = new LinkedHashMap<>();
+
     static {
         genres.put("rock", "images/genres/rock.jpg");
         genres.put("R&B", "images/genres/R&B.jpg");
@@ -904,15 +914,16 @@ public class Genres {
 ```
 
 ### Encontrado en Controller/Moods.java
-```java
-package Model;
 
-import java.util.HashMap;
+```java
+package ModelTests;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Moods {
-    public static Map <String ,String > moods=new LinkedHashMap<>();
+    public static Map<String, String> moods = new LinkedHashMap<>();
+
     static {
         moods.put("chill", "images/moods/chill.jpg");
         moods.put("dinner", "images/moods/dinner.jpeg");

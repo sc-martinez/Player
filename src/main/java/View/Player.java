@@ -1,6 +1,6 @@
 package View;
 
-import Model.JDBCConnector;
+import ModelTests.JDBCConnector;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;

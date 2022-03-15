@@ -82,8 +82,9 @@ Clases que tienen demasiadas responsabilidades, normalmente evidencia de baja co
 <p>
 
 #### Encontrado en Model/JDBCConnector.java
+
 ```java
-package Model;
+package ModelTests;
 
 import com.mpatric.mp3agic.*;
 import javafx.collections.FXCollections;
@@ -143,7 +144,7 @@ public class JDBCConnector {
                     System.out.println("id3v2");
                     ID3v2 id3v2Tag = mp3file.getId3v2Tag();
                     add(id3v2Tag.getTitle(), file.getAbsolutePath(), mp3file.getLengthInSeconds(), id3v2Tag.getArtist(),
-                            id3v2Tag.getAlbum(), id3v2Tag.getTrack(), id3v2Tag.getYear().substring(0,4), id3v2Tag.getLyrics());
+                            id3v2Tag.getAlbum(), id3v2Tag.getTrack(), id3v2Tag.getYear().substring(0, 4), id3v2Tag.getLyrics());
 
                     artist = id3v2Tag.getArtist();
                     album = id3v2Tag.getAlbum();
@@ -260,21 +261,22 @@ public class JDBCConnector {
             System.out.println(ex.getMessage());
         }
     }
-    public static String[] returnGenreMood(String path,String gm){
-        ResultSet rs=null;
-        Array genresmoods=null;
-        String[] g=null;
-        String SQL="SELECT "+gm+" from songs WHERE path=?";
+
+    public static String[] returnGenreMood(String path, String gm) {
+        ResultSet rs = null;
+        Array genresmoods = null;
+        String[] g = null;
+        String SQL = "SELECT " + gm + " from songs WHERE path=?";
         try {
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,path);
-            rs=preparedStatement.executeQuery();
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, path);
+            rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 genresmoods = rs.getArray(gm.toUpperCase());
-                if(genresmoods!=null)
+                if (genresmoods != null)
                     g = (String[]) genresmoods.getArray();
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
         }
         return g;
     }
@@ -313,8 +315,8 @@ public class JDBCConnector {
                         album(rs.getString(3)).year(rs.getString(4)).rate(rs.getInt(5)).
                         track(rs.getString(6)).text(rs.getString(8)).image(rs.getString(9)).build());
             }
-        }catch (Exception ex){
-            System.out.println("Return data   "+ ex.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Return data   " + ex.getMessage());
         }
         return data;
     }
@@ -325,11 +327,6 @@ public class JDBCConnector {
 ====================PLAYLIST==========================
 ======================================================
  */
-
-
-
-
-
 
 
     /*===================================================
@@ -344,48 +341,50 @@ public class JDBCConnector {
         ObservableList<Album> data =
                 FXCollections.observableArrayList();
         while (rs.next()) {
-            data.add(new Album(rs.getString(1),rs.getString(2),rs.getInt(3),
-                    rs.getString(4),rs.getString(5),rs.getString(6)));
+            data.add(new Album(rs.getString(1), rs.getString(2), rs.getInt(3),
+                    rs.getString(4), rs.getString(5), rs.getString(6)));
         }
         return data;
     }
+
     public static ObservableList<Song> returnByAlbum(String album) throws SQLException {
 
         String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE album='" + album + "'";
         return returndata(SQL);
     }
-    public static void updateAlbum(String image,String name,int year,String artist,String description,String label,String oldname){
+
+    public static void updateAlbum(String image, String name, int year, String artist, String description, String label, String oldname) {
         System.out.println(oldname);
         System.out.println(image);
-        String SQL="UPDATE album SET image=?,name=?,artist=?,year=?,description=?,label=? WHERE name=? ";
-        try{
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,image);
-            preparedStatement.setString(2,name);
-            preparedStatement.setString(3,artist);
-            preparedStatement.setInt(4,year);
-            preparedStatement.setString(5,description);
-            preparedStatement.setString(6,label);
-            preparedStatement.setString(7,oldname);
+        String SQL = "UPDATE album SET image=?,name=?,artist=?,year=?,description=?,label=? WHERE name=? ";
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, image);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, artist);
+            preparedStatement.setInt(4, year);
+            preparedStatement.setString(5, description);
+            preparedStatement.setString(6, label);
+            preparedStatement.setString(7, oldname);
             preparedStatement.executeUpdate();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }
-    public static String returnImage(String album){
-        String SQL="SELECT image FROM album WHERE name=?";
-        String a=null;
-        try{
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,album);
-            ResultSet rs=preparedStatement.executeQuery();
+
+    public static String returnImage(String album) {
+        String SQL = "SELECT image FROM album WHERE name=?";
+        String a = null;
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, album);
+            ResultSet rs = preparedStatement.executeQuery();
             rs.next();
-            a=rs.getString(1);
-        }catch (Exception ex){
+            a = rs.getString(1);
+        } catch (Exception ex) {
         }
         return a;
     }
-
 
 
     /*====================================================
@@ -406,24 +405,26 @@ public class JDBCConnector {
         }
         return data;
     }
+
     public static ObservableList<Song> returnByArtist(String artist) throws SQLException {
 
         String SQL = "Select title,artist,album,year,rate,track,path,text,image from songs WHERE artist='" + artist + "'";
         return returndata(SQL);
     }
-    public static void updateArtist(String image,String name,String website,String youtubewebsite,String description,String oldname){
-        String SQL="UPDATE artist SET image=?,name=?,webstie=?,youtubewebsite=?,description=? WHERE name=?";
-        try{
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,image);
-            preparedStatement.setString(2,name);
-            preparedStatement.setString(3,website);
-            preparedStatement.setString(4,youtubewebsite);
-            preparedStatement.setString(5,description);
-            preparedStatement.setString(6,oldname);
+
+    public static void updateArtist(String image, String name, String website, String youtubewebsite, String description, String oldname) {
+        String SQL = "UPDATE artist SET image=?,name=?,webstie=?,youtubewebsite=?,description=? WHERE name=?";
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, image);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, website);
+            preparedStatement.setString(4, youtubewebsite);
+            preparedStatement.setString(5, description);
+            preparedStatement.setString(6, oldname);
             preparedStatement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -432,19 +433,19 @@ public class JDBCConnector {
 //=========================UPDATE SONG========================
 //============================================================
 
-    public static void updateSong(String title,String artist, String album,String[] genre,String[] moods,String text,String image,String path){
-        String SQL="UPDATE songs SET title=?,artist=?,album=?,genre=?,moods=?,text=?,image=? WHERE path=?";
+    public static void updateSong(String title, String artist, String album, String[] genre, String[] moods, String text, String image, String path) {
+        String SQL = "UPDATE songs SET title=?,artist=?,album=?,genre=?,moods=?,text=?,image=? WHERE path=?";
 
         try {
-            PreparedStatement preparedStatement=conn.prepareStatement(SQL);
-            preparedStatement.setString(1,title);
-            preparedStatement.setString(2,artist);
-            preparedStatement.setString(3,album);
-            preparedStatement.setArray(4,conn.createArrayOf("text",genre));
-            preparedStatement.setArray(5,conn.createArrayOf("text",moods));
-            preparedStatement.setString(6,text);
-            preparedStatement.setString(7,image);
-            preparedStatement.setString(8,path);
+            PreparedStatement preparedStatement = conn.prepareStatement(SQL);
+            preparedStatement.setString(1, title);
+            preparedStatement.setString(2, artist);
+            preparedStatement.setString(3, album);
+            preparedStatement.setArray(4, conn.createArrayOf("text", genre));
+            preparedStatement.setArray(5, conn.createArrayOf("text", moods));
+            preparedStatement.setString(6, text);
+            preparedStatement.setString(7, image);
+            preparedStatement.setString(8, path);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -664,8 +665,9 @@ A pesar de que comparten estas cáracteristicas se debe trabajar en la verbosida
 <p>
 
 ### Encontrado en Model/AzlyricsConncector y Model/LyricsConnector
+
 ```java
-package Model;
+package ModelTests;
 
 public abstract class LyricsConnector {
 
@@ -675,8 +677,9 @@ public abstract class LyricsConnector {
     abstract protected void setText(String url);
 }
 ```
+
 ```java
-package Model;
+package ModelTests;
 
 
 import java.io.*;
@@ -685,24 +688,24 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class AzlyricsConncector extends LyricsConnector implements Runnable{
+public class AzlyricsConncector extends LyricsConnector implements Runnable {
 
     private String URL;
     private String artist;
     private String title;
     private String text;
 
-    public AzlyricsConncector(String artist,String title){
-        this.artist=artist;
-        this.title=title;
-        this.URL="azlyrics";
+    public AzlyricsConncector(String artist, String title) {
+        this.artist = artist;
+        this.title = title;
+        this.URL = "azlyrics";
     }
 
 
     @Override
-    protected String  findWeb() {
-        String key="AIzaSyDbdxrTsdm5pgTHnHJKHV9XPEuwv6IaOjg";
-        String qry="azlyrics/"+artist.toLowerCase().replaceAll(" ","")+"/"+title.toLowerCase().replaceAll(" ","");
+    protected String findWeb() {
+        String key = "AIzaSyDbdxrTsdm5pgTHnHJKHV9XPEuwv6IaOjg";
+        String qry = "azlyrics/" + artist.toLowerCase().replaceAll(" ", "") + "/" + title.toLowerCase().replaceAll(" ", "");
         System.out.println(qry);
         try {
             URL url = new URL(
@@ -718,17 +721,18 @@ public class AzlyricsConncector extends LyricsConnector implements Runnable{
 
                 if (output.contains("\"link\": \"")) {
                     String link = output.substring(output.indexOf("\"link\": \"") + ("\"link\": \"").length(), output.indexOf("\","));
-                    if(link.matches("^https://www.azlyrics.com/lyrics/.*")){
+                    if (link.matches("^https://www.azlyrics.com/lyrics/.*")) {
                         return link;
                     }
                 }
             }
             conn.disconnect();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        return  null;
+        return null;
     }
+
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -741,9 +745,9 @@ public class AzlyricsConncector extends LyricsConnector implements Runnable{
     @Override
     protected void setText(String _url) {
         Pattern pattern = Pattern.compile("<!-- Usage of azlyrics.com content by any third-party lyrics provider is prohibited by our licensing agreement. Sorry about that. -->(.*?)</div><br><br><!-- MxM banner -->");
-        StringBuilder html=new StringBuilder();
+        StringBuilder html = new StringBuilder();
         try {
-            URL url=new URL(_url);
+            URL url = new URL(_url);
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(url.openStream()));
             String inputLine;
@@ -756,30 +760,27 @@ public class AzlyricsConncector extends LyricsConnector implements Runnable{
             e.printStackTrace();
         }
 
-        String htmlString=html.toString();
-        Matcher matcher=pattern.matcher(htmlString);
+        String htmlString = html.toString();
+        Matcher matcher = pattern.matcher(htmlString);
         if (matcher.find()) {
-            text=matcher.group(1).replaceAll("<br>","\n");
-            text=text.replaceAll("<i>"," ");
-            text=text.replaceAll("</i>"," ");
+            text = matcher.group(1).replaceAll("<br>", "\n");
+            text = text.replaceAll("<i>", " ");
+            text = text.replaceAll("</i>", " ");
         }
     }
 
-    public String returnLyrics(){
-        System.out.println("hmh\n"+text);
+    public String returnLyrics() {
+        System.out.println("hmh\n" + text);
         return text;
     }
 
 
-
-
     @Override
     public void run() {
-        String link=findWeb();
-        if(link!=null){
+        String link = findWeb();
+        if (link != null) {
             setText(link);
-        }
-        else {
+        } else {
             System.out.println("puste");
         }
     }
@@ -814,15 +815,16 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
 
 }
 ```
-```java
-package Model;
 
-import java.util.HashMap;
+```java
+package ModelTests;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Genres {
-    public static Map<String ,String > genres=new LinkedHashMap<>();
+    public static Map<String, String> genres = new LinkedHashMap<>();
+
     static {
         genres.put("rock", "images/genres/rock.jpg");
         genres.put("R&B", "images/genres/R&B.jpg");
