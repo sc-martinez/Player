@@ -34,7 +34,12 @@ los componentes gráficos de JavaFX y no uso funcion al en la aplicación.
 
 ### *Bítacora de implementación de pruebas de unidad* ✔️
 A continuación se presenta un resumen de las pruebas unitarias más destacables de toda la implementación de la suite. 
-###Ejemplos
+
+#### Localización de la suite de pruebas: 
+
+[Link a la implementación de la suite](https://github.com/sc-martinez/Player/tree/master/src/test/java)
+
+###Ejemplos destacables
 ### *YoutubeLauncher*
 <details><summary>Prueba de unidad</summary>
 <p>
