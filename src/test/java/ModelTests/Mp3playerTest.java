@@ -26,7 +26,7 @@ public class Mp3playerTest extends ApplicationTest {
     }
 
     @Test
-    public void loadSongs() {
+    public void loadSongsSuccess() {
         Song sa = new Song
                 .SongBuilder("")
                 .album("meteora")
@@ -51,7 +51,7 @@ public class Mp3playerTest extends ApplicationTest {
 
 
     @Test
-    public void next() {
+    public void nextWhenSongsAreLoaded() {
         Song sa = new Song
                 .SongBuilder("")
                 .album("meteora")
@@ -70,7 +70,7 @@ public class Mp3playerTest extends ApplicationTest {
     }
 
     @Test
-    public void prev() {
+    public void prevWhenSongsAreOnThePlayer() {
         Song sa = new Song
                 .SongBuilder("")
                 .album("meteora")
@@ -88,7 +88,7 @@ public class Mp3playerTest extends ApplicationTest {
     }
 
     @Test
-    public void setAutoreplay() {
+    public void setAutoreplayCyclicBehaviorOnPlayer() {
         Song sa = new Song
                 .SongBuilder("")
                 .album("meteora")

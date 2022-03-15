@@ -21,6 +21,7 @@ public class EditArtistOrAlbum implements Initializable {
     private AnchorPane pane;
 
     private ArtistAlbum a;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
