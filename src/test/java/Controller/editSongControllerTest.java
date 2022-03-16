@@ -19,49 +19,49 @@ import java.util.UUID;
 import static org.junit.Assert.*;
 
 public class editSongControllerTest extends ApplicationTest {
-
-    FXMLLoader loader;
-    String artist = UUID.randomUUID().toString() ;
-    String song = UUID.randomUUID().toString() ;
-    List<Song> songs = new ArrayList<>();
-
-    @Override
-    public void start(Stage stage) throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException, IOException {
-        loader= new FXMLLoader(
-                getClass().getResource(
-                        "/editSong.fxml"
-                )
-        );
-        stage.setScene(new Scene((Pane) loader.load()));
-        //stage.show();
-        Song sa = new Song
-                .SongBuilder("")
-                .album("meteora")
-                .artist(artist)
-                .title(song)
-                .build();
-        songs.add(sa);
-        JDBCConnector.connect();
-        JDBCConnector.addArtist(artist);
-
-    }
-
-
-    @Test
-    public void initDataAndRenderContent() {
-        Platform.runLater( new Thread(()-> {
-            editSongController controller = loader.getController();
-            controller.initData(songs.get(0));
-            assertEquals(songs.get(0).getArtist(), artist);
-        }));
-    }
-
-    @Test
-    public void initialize() {
-        Platform.runLater( new Thread(()-> {
-            editSongController controller = loader.getController();
-            controller.initialize(null, null);
-            assertEquals(songs.get(0).getArtist(), artist);
-        }));
-    }
+//
+//    FXMLLoader loader;
+//    String artist = UUID.randomUUID().toString() ;
+//    String song = UUID.randomUUID().toString() ;
+//    List<Song> songs = new ArrayList<>();
+//
+//    @Override
+//    public void start(Stage stage) throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException, IOException {
+//        loader= new FXMLLoader(
+//                getClass().getResource(
+//                        "/editSong.fxml"
+//                )
+//        );
+//        stage.setScene(new Scene((Pane) loader.load()));
+//        //stage.show();
+//        Song sa = new Song
+//                .SongBuilder("")
+//                .album("meteora")
+//                .artist(artist)
+//                .title(song)
+//                .build();
+//        songs.add(sa);
+//        JDBCConnector.connect();
+//        JDBCConnector.addArtist(artist);
+//
+//    }
+//
+//
+//    @Test
+//    public void initDataAndRenderContent() {
+//        Platform.runLater( new Thread(()-> {
+//            editSongController controller = loader.getController();
+//            controller.initData(songs.get(0));
+//            assertEquals(songs.get(0).getArtist(), artist);
+//        }));
+//    }
+//
+//    @Test
+//    public void initialize() {
+//        Platform.runLater( new Thread(()-> {
+//            editSongController controller = loader.getController();
+//            controller.initialize(null, null);
+//            assertEquals(songs.get(0).getArtist(), artist);
+//        }));
+//    }
 }
