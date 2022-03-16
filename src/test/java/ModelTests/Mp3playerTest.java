@@ -22,7 +22,7 @@ public class Mp3playerTest extends ApplicationTest {
         pane = new AnchorPane();
         stage.setScene(new Scene( pane
                 , 100, 100));
-        stage.show();
+        //stage.show();
     }
 
     @Test

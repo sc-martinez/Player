@@ -33,7 +33,7 @@ public class editSongControllerTest extends ApplicationTest {
                 )
         );
         stage.setScene(new Scene((Pane) loader.load()));
-        stage.show();
+        //stage.show();
         Song sa = new Song
                 .SongBuilder("")
                 .album("meteora")

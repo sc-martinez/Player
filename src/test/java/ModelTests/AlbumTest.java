@@ -23,7 +23,7 @@ public class AlbumTest extends ApplicationTest {
         pane = new AnchorPane();
         stage.setScene(new Scene( pane
                 , 100, 100));
-        stage.show();
+        //stage.show();
         JDBCConnector.connect();
         JDBCConnector.addArtist(artist);
 
