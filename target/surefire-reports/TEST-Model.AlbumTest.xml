@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="Model.AlbumTest" time="0.929" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="Model.AlbumTest" time="0.918" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.3.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -46,7 +46,7 @@
     <property name="java.class.path" value="E:\JetBrains\Toolbox\apps\IDEA-C\ch-0\213.6777.52\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;E:\JetBrains\Toolbox\apps\IDEA-C\ch-0\213.6777.52\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.2 verify"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.2 -Dheadless=true -B verify"/>
     <property name="java.home" value="E:\JetBrains\Toolbox\apps\IDEA-C\ch-0\213.6777.52\jbr"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -62,9 +62,10 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="java.vendor.version" value="JBR-11.0.13.7-1751.25-jcef"/>
     <property name="sun.desktop" value="windows"/>
+    <property name="headless" value="true"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Model.AlbumTest" name="save" time="0.372"/>
-  <testcase classname="Model.AlbumTest" name="initDataWhenAlbumIsIdeal" time="0.277"/>
-  <testcase classname="Model.AlbumTest" name="initDataWhenAlbumIsNotIdeal" time="0.28"/>
+  <testcase classname="Model.AlbumTest" name="save" time="0.378"/>
+  <testcase classname="Model.AlbumTest" name="initDataWhenAlbumIsIdeal" time="0.273"/>
+  <testcase classname="Model.AlbumTest" name="initDataWhenAlbumIsNotIdeal" time="0.267"/>
 </testsuite>
