@@ -18,7 +18,7 @@ Para el estado actual de la solución, se evidencia que a pesar de que las clase
 #### Encontrado en Model/JDBCConnector.java
 
 ```java
-package ModelTests;
+package Model;
 
 import com.mpatric.mp3agic.*;
 import javafx.collections.FXCollections;
@@ -509,7 +509,7 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
 ```
 
 ```java
-package ModelTests;
+package Model;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -585,7 +585,7 @@ Esto es una violación a los principios de Interface Segregation y Liskov Substi
 ### Encontrado en Model/DisplayArtistAlbum.java - Model/Genres.java
 
 ```java
-package ModelTests;
+package Model;
 
 import Controller.EditArtistOrAlbum;
 import javafx.event.ActionEvent;
@@ -745,10 +745,10 @@ En este principio las implementaciones deberían estar en función de su nombre.
 ```java
 package Controller;
 
-import ModelTests.Genres;
-import ModelTests.JDBCConnector;
-import ModelTests.Moods;
-import ModelTests.Song;
+import Model.Genres;
+import Model.JDBCConnector;
+import Model.Moods;
+import Model.Song;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -883,7 +883,7 @@ Se identificaron dos clases Genres y Moods que podrían ser datos de configuraci
 ### Encontrado en Controller/Genres.java
 
 ```java
-package ModelTests;
+package Model;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -916,7 +916,7 @@ public class Genres {
 ### Encontrado en Controller/Moods.java
 
 ```java
-package ModelTests;
+package Model;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

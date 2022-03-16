@@ -1,7 +1,7 @@
 package Controller;
 
 
-import ModelTests.*;
+import Model.*;
 import com.jfoenix.controls.JFXListView;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;

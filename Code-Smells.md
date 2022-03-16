@@ -84,7 +84,7 @@ Clases que tienen demasiadas responsabilidades, normalmente evidencia de baja co
 #### Encontrado en Model/JDBCConnector.java
 
 ```java
-package ModelTests;
+package Model;
 
 import com.mpatric.mp3agic.*;
 import javafx.collections.FXCollections;
@@ -667,7 +667,7 @@ A pesar de que comparten estas cáracteristicas se debe trabajar en la verbosida
 ### Encontrado en Model/AzlyricsConncector y Model/LyricsConnector
 
 ```java
-package ModelTests;
+package Model;
 
 public abstract class LyricsConnector {
 
@@ -679,7 +679,7 @@ public abstract class LyricsConnector {
 ```
 
 ```java
-package ModelTests;
+package Model;
 
 
 import java.io.*;
@@ -817,7 +817,7 @@ public void initialize(URL url, ResourceBundle resourceBundle) {
 ```
 
 ```java
-package ModelTests;
+package Model;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

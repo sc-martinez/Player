@@ -1,7 +1,8 @@
 package Controller;
 
-import ModelTests.JDBCConnector;
-import ModelTests.Song;
+import Model.JDBCConnector;
+
+import Model.Song;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

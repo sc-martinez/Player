@@ -1,9 +1,9 @@
 package Controller;
 
-import ModelTests.Genres;
-import ModelTests.JDBCConnector;
-import ModelTests.Moods;
-import ModelTests.Song;
+import Model.Genres;
+import Model.JDBCConnector;
+import Model.Moods;
+import Model.Song;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;

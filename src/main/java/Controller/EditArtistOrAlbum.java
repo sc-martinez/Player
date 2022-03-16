@@ -1,6 +1,6 @@
 package Controller;
 
-import ModelTests.ArtistAlbum;
+import Model.ArtistAlbum;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;

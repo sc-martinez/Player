@@ -1,17 +1,14 @@
 package Controller;
 
-import ModelTests.Album;
-import ModelTests.JDBCConnector;
+import Model.Album;
+import Model.JDBCConnector;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.junit.After;
 import org.junit.Test;
 import org.testfx.api.FxToolkit;

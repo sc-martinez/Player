@@ -149,7 +149,7 @@ public void returnLyricsWhenSongNoExists(){
 
 ```java
 
-package ModelTests;
+package Model;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -278,8 +278,8 @@ public class Mp3playerTest extends ApplicationTest {
 ```java
 package Controller;
 
-import ModelTests.JDBCConnector;
-import ModelTests.Song;
+import Model.JDBCConnector;
+import Model.Song;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -299,13 +299,13 @@ import static org.junit.Assert.*;
 public class editSongControllerTest extends ApplicationTest {
 
     FXMLLoader loader;
-    String artist = UUID.randomUUID().toString() ;
-    String song = UUID.randomUUID().toString() ;
+    String artist = UUID.randomUUID().toString();
+    String song = UUID.randomUUID().toString();
     List<Song> songs = new ArrayList<>();
 
     @Override
     public void start(Stage stage) throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException, IOException {
-        loader= new FXMLLoader(
+        loader = new FXMLLoader(
                 getClass().getResource(
                         "/editSong.fxml"
                 )
@@ -327,7 +327,7 @@ public class editSongControllerTest extends ApplicationTest {
 
     @Test
     public void initDataAndRenderContent() {
-        Platform.runLater( new Thread(()-> {
+        Platform.runLater(new Thread(() -> {
             editSongController controller = loader.getController();
             controller.initData(songs.get(0));
             assertEquals(songs.get(0).getArtist(), artist);
@@ -336,7 +336,7 @@ public class editSongControllerTest extends ApplicationTest {
 
     @Test
     public void initialize() {
-        Platform.runLater( new Thread(()-> {
+        Platform.runLater(new Thread(() -> {
             editSongController controller = loader.getController();
             controller.initialize(null, null);
             assertEquals(songs.get(0).getArtist(), artist);
