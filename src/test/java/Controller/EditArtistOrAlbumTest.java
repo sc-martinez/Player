@@ -32,7 +32,7 @@ public class EditArtistOrAlbumTest extends ApplicationTest {
                 )
         );
         stage.setScene(new Scene((Pane) loader.load()));
-        //stage.show();
+        stage.show();
         JDBCConnector.connect();
         JDBCConnector.addArtist(artist);
 

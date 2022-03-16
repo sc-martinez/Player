@@ -22,7 +22,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>View.Player</mainClass>
+                    <mainClass>View.Launcher</mainClass>
                 </configuration>
             </plugin>
         </plugins>
