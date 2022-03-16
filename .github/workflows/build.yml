@@ -34,6 +34,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run:
-            sudo apt-get install xvfb
-            Xvfb :99 &>/dev/null & export DISPLAY=:99
+            sudo apt-get install xvfb &&
+            Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
             mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sc-martinez_Player
