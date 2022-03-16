@@ -26,21 +26,15 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <repositories>
-        <repository>
-            <id>snapshots</id>
-            <name>libs-snapshot</name>
-            <url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
-        </repository>
-
             <repository>
-                <id>snapshots</id>
-                <name>libs-snapshot</name>
+                <id>jfrog</id>
+                <name>jfrog-snapshot</name>
                 <url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
             </repository>
 
             <repository>
-                <id>snapshots</id>
-                <name>libs-snapshot</name>
+                <id>sonatype</id>
+                <name>sonatype-snapshot</name>
                 <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
             </repository>
 
