@@ -139,6 +139,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.jfxtras</groupId>
+            <artifactId>openjfx-monocle</artifactId>
+            <version>1.8.0_20</version>
+        </dependency>
+        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.13.2</version>
