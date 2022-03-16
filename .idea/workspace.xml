@@ -5,35 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2264595-5092-4fbc-9fc1-1b017d3044a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Base/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Controller/EditArtistOrAlbumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controller/EditArtistOrAlbumTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Controller/editSongControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controller/editSongControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Model/AlbumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Model/AlbumTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Model/Mp3playerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Model/Mp3playerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Controller.EditArtistOrAlbumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Controller.EditArtistOrAlbumTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Controller.editSongControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Controller.editSongControllerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Model.AlbumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Model.AlbumTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Model.AzlyricsConncectorTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Model.AzlyricsConncectorTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Model.Mp3playerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Model.Mp3playerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Model.YoutubeLauncherTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Model.YoutubeLauncherTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Controller.EditArtistOrAlbumTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Controller.EditArtistOrAlbumTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Controller.editSongControllerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Controller.editSongControllerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.AlbumTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.AlbumTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.AzlyricsConncectorTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.AzlyricsConncectorTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.Mp3playerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.Mp3playerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.YoutubeLauncherTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.YoutubeLauncherTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Controller/EditArtistOrAlbumTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Controller/EditArtistOrAlbumTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Controller/editSongControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Controller/editSongControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/AlbumTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/AlbumTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/AzlyricsConncectorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/AzlyricsConncectorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/Mp3playerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/Mp3playerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/YoutubeLauncherTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/YoutubeLauncherTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
