@@ -57,8 +57,9 @@ public class JDBCConnector {
                 if (mp3file.hasId3v2Tag()) {
                     System.out.println("id3v2");
                     ID3v2 id3v2Tag = mp3file.getId3v2Tag();
+                    System.out.println(id3v2Tag.toString());
                     add(id3v2Tag.getTitle(), file.getAbsolutePath(), mp3file.getLengthInSeconds(), id3v2Tag.getArtist(),
-                            id3v2Tag.getAlbum(), id3v2Tag.getTrack(), id3v2Tag.getYear().substring(0,4), id3v2Tag.getLyrics());
+                            id3v2Tag.getAlbum(), id3v2Tag.getTrack(), (id3v2Tag.getYear() != null ) ? id3v2Tag.getYear().substring(0,4) : "1970" , id3v2Tag.getLyrics());
 
                     artist = id3v2Tag.getArtist();
                     album = id3v2Tag.getAlbum();

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b2264595-5092-4fbc-9fc1-1b017d3044a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ModelTests/JDBCConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ModelTests/JDBCConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/EditArtistOrAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/EditArtistOrAlbum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/PlayerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/PlayerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/editSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/editSongController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Album.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Album.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Artist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/ArtistAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/ArtistAlbum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/AzlyricsConncector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/AzlyricsConncector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/DisplayArtistAlbum$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/DisplayArtistAlbum$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/DisplayArtistAlbum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/DisplayArtistAlbum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Genres.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Genres.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/JDBCConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/JDBCConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/LyricsConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/LyricsConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Moods.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Moods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Mp3player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Observer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Playlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Playlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/PlaylistButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/PlaylistButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Song$SongBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Song$SongBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Song.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/Subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ModelTests/YoutubeLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ModelTests/YoutubeLauncher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Launcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Player$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/View/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/View/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Controller/EditArtistOrAlbumTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Controller/EditArtistOrAlbumTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Controller/editSongControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Controller/editSongControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ModelTests/AlbumTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ModelTests/AlbumTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ModelTests/AzlyricsConncectorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ModelTests/AzlyricsConncectorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ModelTests/Mp3playerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ModelTests/Mp3playerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ModelTests/YoutubeLauncherTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ModelTests/YoutubeLauncherTest.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="26S8JBYnDj2HKKqTrwKuDIeNNJR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="View.Launcher" />
+      <module name="Player" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launcher" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b2264595-5092-4fbc-9fc1-1b017d3044a0" name="Changes" comment="" />
+      <created>1647405562316</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647405562316</updated>
+    </task>
+    <servers />
+  </component>
+</project>
