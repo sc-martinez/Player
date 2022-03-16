@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b2264595-5092-4fbc-9fc1-1b017d3044a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/Controller.EditArtistOrAlbumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Controller.EditArtistOrAlbumTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/Controller.editSongControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Controller.editSongControllerTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/Model.AlbumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Model.AlbumTest.txt" afterDir="false" />
@@ -67,6 +66,9 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn verify" />
+      <command value="mvn -Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw -Dprism.text=t2k -B verify " />
+      <command value="mvn -Dheadless=true  verify " />
+      <command value="mvn -Dheadless=true -B verify" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.All in Player">
