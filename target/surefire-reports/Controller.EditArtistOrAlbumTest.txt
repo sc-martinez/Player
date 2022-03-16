@@ -1,4 +1,51 @@
 -------------------------------------------------------------------------------
 Test set: Controller.EditArtistOrAlbumTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.4 sec
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.438 sec <<< FAILURE!
+Controller.EditArtistOrAlbumTest  Time elapsed: 0.437 sec  <<< ERROR!
+java.lang.RuntimeException: java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/sun/glass/ui/Robot
+	at org.testfx.util.WaitForAsyncUtils.waitFor(WaitForAsyncUtils.java:302)
+	at org.testfx.api.FxToolkit.registerPrimaryStage(FxToolkit.java:107)
+	at Base.BaseTest.setupSpec(BaseTest.java:16)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:305)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:412)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/sun/glass/ui/Robot
+	at com.sun.javafx.tk.quantum.QuantumToolkit.startup(QuantumToolkit.java:268)
+	at com.sun.javafx.application.PlatformImpl.startup(PlatformImpl.java:269)
+	at com.sun.javafx.application.PlatformImpl.startup(PlatformImpl.java:158)
+	at com.sun.javafx.application.LauncherImpl.startToolkit(LauncherImpl.java:658)
+	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:678)
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication$2(LauncherImpl.java:195)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NoClassDefFoundError: com/sun/glass/ui/Robot
+	at com.sun.glass.ui.monocle.MonoclePlatformFactory.createApplication(MonoclePlatformFactory.java:42)
+	at com.sun.glass.ui.Application.run(Application.java:144)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.startup(QuantumToolkit.java:258)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: com.sun.glass.ui.Robot
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 9 more
+

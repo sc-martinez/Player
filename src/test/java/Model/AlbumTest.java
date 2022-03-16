@@ -1,21 +1,23 @@
 package Model;
 
+import Base.BaseTest;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.junit.Test;
-import org.testfx.framework.junit.ApplicationTest;
+
 import java.sql.*;
 import java.util.Random;
 import java.util.UUID;
 
 import static org.junit.Assert.*;
 
-public class AlbumTest extends ApplicationTest {
+public class AlbumTest extends BaseTest {
 
     AnchorPane pane;
     String artist = UUID.randomUUID().toString() ;
+
 
     @Override
     public void start(Stage stage) throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException {

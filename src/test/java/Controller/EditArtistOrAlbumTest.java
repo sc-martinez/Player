@@ -1,7 +1,9 @@
 package Controller;
 
+import Base.BaseTest;
 import Model.Album;
 import Model.JDBCConnector;
+import View.Player;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,17 +12,21 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.testfx.api.FxRobot;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 import java.util.UUID;
 
 import static org.junit.Assert.*;
+import static org.testfx.api.FxToolkit.registerPrimaryStage;
 
-public class EditArtistOrAlbumTest extends ApplicationTest {
+public class EditArtistOrAlbumTest extends BaseTest {
 
     FXMLLoader loader;
     String artist = UUID.randomUUID().toString() ;
@@ -34,7 +40,6 @@ public class EditArtistOrAlbumTest extends ApplicationTest {
         );
         stage.setScene(new Scene((Pane) loader.load()));
         stage.show();
-        stage.toFront();
         JDBCConnector.connect();
         JDBCConnector.addArtist(artist);
 

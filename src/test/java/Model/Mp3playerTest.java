@@ -1,5 +1,6 @@
 package Model;
 
+import Base.BaseTest;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -13,7 +14,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class Mp3playerTest extends ApplicationTest {
+public class Mp3playerTest extends BaseTest {
 
     AnchorPane pane;
 

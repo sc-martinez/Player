@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2264595-5092-4fbc-9fc1-1b017d3044a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Base/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Controller/EditArtistOrAlbumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controller/EditArtistOrAlbumTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Controller/editSongControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controller/editSongControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Model/AlbumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Model/AlbumTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Model/Mp3playerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Model/Mp3playerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/Controller.EditArtistOrAlbumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Controller.EditArtistOrAlbumTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/Controller.editSongControllerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Controller.editSongControllerTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/Model.AlbumTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/Model.AlbumTest.txt" afterDir="false" />
@@ -19,6 +28,12 @@
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.AzlyricsConncectorTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.AzlyricsConncectorTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.Mp3playerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.Mp3playerTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.YoutubeLauncherTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-Model.YoutubeLauncherTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Controller/EditArtistOrAlbumTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Controller/EditArtistOrAlbumTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Controller/editSongControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Controller/editSongControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/AlbumTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/AlbumTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/AzlyricsConncectorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/AzlyricsConncectorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/Mp3playerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/Mp3playerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/Model/YoutubeLauncherTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Model/YoutubeLauncherTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +77,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Model" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn verify" />
       <command value="mvn -Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw -Dprism.text=t2k -B verify " />
       <command value="mvn -Dheadless=true  verify " />
       <command value="mvn -Dheadless=true -B verify" />
+      <command value="mvn -Djava.awt.headless -B verify" />
+      <command value="mvn -Dtestfx.robot=glass -Dtestfx.headless=true -B verify" />
+      <command value="mvn verify -Dheadless=true" />
+      <command value="mvn verify" />
+      <command value="mvn -Dtestfx.robot=glass -Dglass.platform=Monocle -Dmonocle.platform=Headless -Dprism.order=sw" />
+      <command value="mvn -Dtestfx.robot=glass -Dglass.platform=Monocle -Dmonocle.platform=Headless -Dprism.order=sw verify" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.All in Player">
@@ -95,6 +121,22 @@
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AzlyricsConncectorTest.returnLyricsWhenSongExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Player" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Model" />
+      <option name="MAIN_CLASS_NAME" value="Model.AzlyricsConncectorTest" />
+      <option name="METHOD_NAME" value="returnLyricsWhenSongExists" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -160,11 +202,13 @@
     <list>
       <item itemvalue="Application.Launcher" />
       <item itemvalue="JUnit.All in Player" />
+      <item itemvalue="JUnit.AzlyricsConncectorTest.returnLyricsWhenSongExists" />
       <item itemvalue="Maven.Player [verify]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in Player" />
+        <item itemvalue="JUnit.AzlyricsConncectorTest.returnLyricsWhenSongExists" />
         <item itemvalue="Application.Launcher" />
       </list>
     </recent_temporary>
@@ -190,5 +234,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Controller/EditArtistOrAlbumTest.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

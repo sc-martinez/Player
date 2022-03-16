@@ -1,5 +1,6 @@
 package Controller;
 
+import Base.BaseTest;
 import Model.JDBCConnector;
 
 import Model.Song;
@@ -19,7 +20,7 @@ import java.util.UUID;
 
 import static org.junit.Assert.*;
 
-public class editSongControllerTest extends ApplicationTest {
+public class editSongControllerTest extends BaseTest {
 
     FXMLLoader loader;
     String artist = UUID.randomUUID().toString() ;
