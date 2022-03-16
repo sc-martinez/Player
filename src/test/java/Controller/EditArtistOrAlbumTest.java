@@ -6,11 +6,15 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.junit.After;
 import org.junit.Test;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
 
 import java.io.IOException;
@@ -33,9 +37,18 @@ public class EditArtistOrAlbumTest extends ApplicationTest {
         );
         stage.setScene(new Scene((Pane) loader.load()));
         stage.show();
+        stage.toFront();
         JDBCConnector.connect();
         JDBCConnector.addArtist(artist);
 
+    }
+
+
+    @After
+    public void tearDown () throws Exception {
+        FxToolkit.hideStage();
+        release(new KeyCode[]{});
+        release(new MouseButton[] {});
     }
 
     @Test
