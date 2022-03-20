@@ -1,7 +1,7 @@
-create database player;
+SELECT 'CREATE DATABASE player'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'player')
 
 create schema public;
-
 
 create table artist
 (
@@ -9,7 +9,7 @@ create table artist
         constraint artist_pk
             primary key,
     members        character varying[],
-    website        varchar,
+    webstie        varchar,
     youtubewebsite varchar,
     image          varchar,
     description    text
@@ -49,9 +49,9 @@ create table playlist
 alter table playlist
     owner to postgres;
 
-create table song
+create table songs
 (
-    id       integer not null
+    id       serial
         constraint song_pk
             primary key,
     title    varchar,
@@ -68,9 +68,11 @@ create table song
     rate     smallint,
     moods    character varying[],
     image    varchar,
-    year     integer
+    year     varchar,
+    track    varchar,
+    length   integer
 );
 
-alter table song
+alter table songs
     owner to postgres;
 
