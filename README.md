@@ -1,4 +1,22 @@
 ## Recuperando del reproductor de Audio : Un proyecto de Gestión de la deuda técnica - CSDT
+
+## _Métricas de calidad_
+
+### Últimos resultados: 
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=bugs)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Lineas Duplicadas (%)](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Lineas de código](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+
+### Calificación por atributos no funcionales: 
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=sc-martinez_Player&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=sc-martinez_Player)
+
 ## Resumen
 Este repositorio contiene el resultado de la aplicación de técnicas de gestión de la deuda técnica a un proyecto publico de código legado cómo caso de estudio.
 
@@ -29,11 +47,11 @@ El reproductor de audio utiliza el siguiente stack de tecnología :
    - la capacidad de conectarse automáticamente a YouTube y mostrar la canción allí
 
 ## Muestra de UI
-![img_1.png](Resources/img_1.png)
+![img_1.png](Resources/demo.png)
 
 ## Documentación de la solución
 Modelo entidad-relación MER (Original) : 
-  ![img.png](Resources/img.png)
+  ![img.png](Resources/MER.png)
 
 ## Instalación
 **Nota de desarrollo**: Pendiente por documentar, hace parte de la deuda-técnica en este punto
@@ -71,3 +89,6 @@ B -- Plan de pruebas --> D([Pruebas unitarias])
 
 - ***09-13 de marzo de 2022***  : Creación de pruebas de unidad, análisis de deuda técnica de pruebas. 
   - Resultados en : [TechnicalDebt -Model.Tests.md](https://github.com/sc-martinez/Player/blob/master/TechnicalDebt%20-Tests.md)
+
+- ***18-20 de marzo de 2022***  : Utilización de herramientas de anális estático de código.
+  - Resultados en : [IntroducingToolsOnTheProcess.md](https://github.com/sc-martinez/Player/blob/master/IntroducingToolsOnTheProcess.md)

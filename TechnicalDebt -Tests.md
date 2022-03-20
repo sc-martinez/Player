@@ -137,7 +137,7 @@ public void returnLyricsWhenSongNoExists(){
 
 
 
-![img.png](AzLyricsConnector.png)
+![img.png](Resources/AzLyricsConnector.png)
 
 
 
@@ -266,7 +266,7 @@ public class Mp3playerTest extends ApplicationTest {
 
 </details></p>
 
-![Mp3Player](MP3PlayerTest.png)
+![Mp3Player](Resources/MP3PlayerTest.png)
 
 
 ### *editSongController*
@@ -347,13 +347,13 @@ public class editSongControllerTest extends ApplicationTest {
 
 </details></p>
 
-![img.png](editSongController.png)
+![img.png](Resources/editSongController.png)
 
 ### Resumen de pruebas ejecutadas
 En total se implementaron 6 clases de pruebas de unidad cubriendo un total de 14 escenarios críticos para el funcionamiento del reproductor. 
 Se prueban integraciones externas con servicios de reproducción de videos de Youtube y obtención de letras de canciones por medio de AZLyrics.com
 
-![img_1.png](AllTests.png)
+![img_1.png](Resources/AllTests.png)
 
 ### Resumen acumulado de Coverage de la suite implementada 
 
@@ -361,13 +361,13 @@ Se logra cubrir un total del 55% de las clases, con una cobertura general del 42
 
 Se cubre un 10% a nivel de controlador, esto debido al fuerte acomplamiento con librerias de JFX que impiden probar las clases de forma programatica. 
 
-![img.png](CoverageAccumulated.png)
+![img.png](Resources/CoverageAccumulated.png)
 
 ### Cobertura del Paquete de modelos
 
 En lógica de negocio se logra cubrir un 42% de cobertura total, se ven oportunidades de pruebas en las clases Song y MP3Player.
 
-![img.png](model.png)
+![img.png](Resources/model.png)
 
 ## Hallazgos 🔎
 
