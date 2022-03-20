@@ -58,7 +58,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Setup database
         run:
-          PGPASSWORD=password psql -f dockerYamls/sql/compose_database.sql postgresql://postgres:postgres@localhost:5432/postgres
+          PGPASSWORD=password psql -U postgres -f dockerYamls/sql/compose_database.sql postgresql://postgres:postgres@localhost:5432/player
 
       - name: Build and analyze
         env:
