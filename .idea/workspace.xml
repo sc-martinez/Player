@@ -6,6 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="b2264595-5092-4fbc-9fc1-1b017d3044a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/build.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Base/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Player-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter11929098126308741389.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter16928148132084414164.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter16968600166026016166.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter17093932403868470375.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter17228249252176530009.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter2303125796799022097.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter2769948416438566772.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter3253266589096367808.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter3782644735973797279.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter405031154774169368.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter458525072093009436.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter46492175971733032.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter4762570978396159440.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter6092674836376097429.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire/surefirebooter7330508064041950872.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +81,10 @@
       <command value="mvn -Dheadless=true -B verify" />
       <command value="mvn -Djava.awt.headless -B verify" />
       <command value="mvn -Dtestfx.robot=glass -Dtestfx.headless=true -B verify" />
-      <command value="mvn verify -Dheadless=true" />
-      <command value="mvn verify" />
       <command value="mvn -Dtestfx.robot=glass -Dglass.platform=Monocle -Dmonocle.platform=Headless -Dprism.order=sw" />
       <command value="mvn -Dtestfx.robot=glass -Dglass.platform=Monocle -Dmonocle.platform=Headless -Dprism.order=sw verify" />
+      <command value="mvn verify -Dheadless=true" />
+      <command value="mvn verify" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.All in Player">
