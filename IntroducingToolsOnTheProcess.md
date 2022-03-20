@@ -6,8 +6,8 @@ La herramienta seleccionada para la aplicación de modelos de Calidad cómo SQAL
 
 [SonarCloud Site](https://sonarcloud.io/)
 
-SonarCloud fue seleccionada del grupo de aplicaciones, por su facilidad de ser integrada a entornos de proyectos GitHub, 
-sus mecanismos de análisis recaen en la creación de flujos de trabajo con GitHubActions, lo que permite integrar la herramienta al flujo de CI/CD (Continuous Integration / Continuous Delivery).
+SonarCloud fue seleccionada del grupo de aplicaciones por su facilidad de ser integrada a entornos de proyectos GitHub, 
+sus mecanismos de análisis recaen en la creación de flujos de trabajo con GitHubActions lo que permite integrar la herramienta al flujo de CI/CD (Continuous Integration / Continuous Delivery).
 
 Estos mecanismos de análisis de código e implementación en el proyecto serán explicados en esta sección. 
 
@@ -105,7 +105,7 @@ Este **Job** interceptará todas las operaciones de _**commit**_ en el repositor
 
 ### Consideraciones del Job  🔄
 
-Las pruebas unitarias de esta solución tienen una dependencia fuerte con una fuente de datos PostGreSQL. Para ajustar este requerimiento de pruebas, se ha decidido instancias un servicio Docker de postgresQl que soportará la ejecución de la suite de pruebas de unidad. 
+Las pruebas unitarias de esta solución tienen una dependencia fuerte con una fuente de datos PostGreSQL. Para ajustar este requerimiento de pruebas, se ha decidido instanciar un servicio Docker de postgresQl que soportará la ejecución de la suite de pruebas de unidad. 
 
 ```yml
 strategy:
@@ -136,7 +136,7 @@ strategy:
         --health-timeout 5s
         --health-retries 5
 ```
-En medio de la instanciación del servicio de base de datos, se realiza la ejecución del script [`dockerYamls/PostgreSQL/sql/compose_database.sql`](https://github.com/sc-martinez/Player/blob/master/dockerYamls/PostgreSQL/sql/compose_database.sql). Encargado de inicializar la base de datos estructuralmente. 
+En medio de la instanciación del servicio de base de datos se realiza la ejecución del script [`dockerYamls/PostgreSQL/sql/compose_database.sql`](https://github.com/sc-martinez/Player/blob/master/dockerYamls/PostgreSQL/sql/compose_database.sql). Encargado de inicializar la base de datos estructuralmente. 
 #### Porción de la definición que inicializa la base de datos
 ```yml
   ...
@@ -148,15 +148,16 @@ En medio de la instanciación del servicio de base de datos, se realiza la ejecu
 
 ### Ejecución de Unit Tests ✔
 
-La sección de análisis se realiza con **Maven**, con una configuración particular, pues al tratarse de una aplicación que integra elementos de GUI de JavaFX, debe ejecutarse en un entorno con soporte de **_Display_** que renderizará el entorno gráfico final. 
+La sección de análisis se realiza con **Maven** con una configuración particular, pues al tratarse de una aplicación que integra elementos de GUI de JavaFX, esta debe ejecutarse en un entorno con soporte de **_Display_** que renderizé el entorno gráfico final. 
+
 Esto no es bueno para nuestro proceso, pues la construcción de la solución y ejecución de las pruebas de unidad se ejecutan en un servidor headless (Sin GUI).
 
 ### WorkAround 💢
 
-La ejecución de las pruebas de unidad al realizarese en un entorno Linux con distribución Ubuntu puede hacerse usando librerias que simulan entornos gráficos viruale por medio de la consola de comandos. Esta solución añade soporte a la automatización de pruebas para aplicaciones con entornos Gráficos tipo desktop.
+La ejecución de las pruebas de unidad al realizarese en un entorno Linux con distribución Ubuntu permite el uso de librerias que simulan entornos gráficos virtuales por medio de la consola de comandos. Esta solución añade soporte a la automatización de pruebas para aplicaciones con entornos Gráficos tipo desktop.
 
 
-Para lograr este objetivo, se hizo uso de la librería [XVFB](https://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml). Que básicamente simula un framebuffer utilizando memoria virtual, orientado a sistemas qye no cuentan con dispositivos de entrada o hardware que permita renderizar componentes gráficos
+Para lograr este objetivo, se hizo uso de la librería [XVFB](https://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml). Que básicamente simula un framebuffer utilizando memoria virtual, orientado a sistemas que no cuentan con dispositivos de entrada o hardware que permita renderizar componentes gráficos
 
 ### Poniendo todo junto 🔀
 
@@ -172,7 +173,7 @@ Se integra la solución de usar XVFB en el workflow que automatiza la construcci
        Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
        mvn clean install -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sc-martinez_Player
 ```
-Esto permite que nuestra instancia de **_Ubuntu_** que realiza las operaciones de analisis de la solución sea capaz de ejecutar las pruebas de unidad, consolidar los resultados y enviar los mismos a SonarCloud para revisión posterior 
+Esto permite que nuestra instancia de **_Ubuntu_** que realiza las operaciones de análisis de la solución sea capaz de ejecutar las pruebas de unidad, consolidar los resultados y enviar los mismos a SonarCloud para revisión posterior. 
 
 ### Ejemplo de estado de ejecución del Job ⚙
 
