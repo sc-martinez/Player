@@ -67,4 +67,4 @@ jobs:
         run:
             sudo apt-get install xvfb &&
             Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
-            xfvb-run mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sc-martinez_Player
+            Xvfb mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sc-martinez_Player
