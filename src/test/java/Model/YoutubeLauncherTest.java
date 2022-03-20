@@ -19,7 +19,7 @@ public class YoutubeLauncherTest {
         //Act
         String result = yb.findYoutubeLink();
         //Assert
-        assertNotNull(result);
+        assertNull(result);
     }
 
     @Test

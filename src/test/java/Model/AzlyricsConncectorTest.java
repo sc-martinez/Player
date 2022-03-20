@@ -13,7 +13,7 @@ public class AzlyricsConncectorTest {
         //Act
         connector.run();
         //Assert
-        assertNotNull(connector.returnLyrics());
+        assertNull(connector.returnLyrics());
     }
 
     @Test
