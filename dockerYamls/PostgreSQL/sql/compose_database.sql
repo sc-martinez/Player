@@ -1,5 +1,7 @@
 SELECT 'CREATE DATABASE player'
-WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'player')
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'player');
+
+create schema public;
 
 create table artist
 (
