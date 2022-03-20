@@ -9,17 +9,18 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    stragegy:
-      database-name:
-        - player
-      database-password:
-        - password
-      database-user:
-        - postgres
-      database-host:
-        - 127.0.0.1
-      database-port:
-        - 5432
+    strategy:
+      matrix: 
+        database-name:
+          - player
+        database-password:
+          - password
+        database-user:
+          - postgres
+        database-host:
+          - 127.0.0.1
+        database-port:
+          - 5432
     services:
       postgres:
         image: postgres:latest
