@@ -60,6 +60,14 @@ jobs:
         run:
           psql -f dockerYamls/PostgreSQL/sql/compose_database.sql postgresql://postgres:password@localhost:5432/player
 
+      - name : Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          run:
+            sudo apt-get install xvfb &&
+            Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
+            mvn clean install
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
@@ -67,4 +75,4 @@ jobs:
         run:
             sudo apt-get install xvfb &&
             Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
-            mvn clean install -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sc-martinez_Player
+            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sc-martinez_Player
