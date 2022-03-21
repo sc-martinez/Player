@@ -32,26 +32,28 @@ public class AlbumTest extends BaseTest {
 
 
     @Test
-    public void initDataWhenAlbumIsIdeal() {
+    public void initDataWhenAlbumIsIdeal() throws InterruptedException {
         Album album = new Album("Meteora", "image",2005,  "Meteora", "Linkin Park", "desc");
         Platform.runLater( new Thread(()-> {
             album.initData(pane);
             assertEquals(album.getArtist(), "Linkin Park");
         }));
+        waitForRunLater();
     }
 
     @Test
-    public void initDataWhenAlbumIsNotIdeal() {
+    public void initDataWhenAlbumIsNotIdeal() throws InterruptedException {
         Album album = new Album("Meteora", "image",-5010,  "Meteora", "Linkin Park", "desc");
         Platform.runLater( new Thread(()-> {
             album.initData(pane);
             assertEquals(album.getArtist(), "Linkin Park");
         }));
+        waitForRunLater();
     }
 
 
     @Test
-    public void save(){
+    public void save() throws InterruptedException {
         String albumName = UUID.randomUUID().toString();
         Album album = new Album(albumName, albumName, new Random().nextInt(),  albumName, artist, "desc");
         Platform.runLater( new Thread(()-> {
@@ -63,6 +65,6 @@ public class AlbumTest extends BaseTest {
             }catch (SQLException e){}
 
         }));
-
+        waitForRunLater();
     }
 }

@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
 
 import static org.junit.Assert.*;
 
@@ -45,25 +46,30 @@ public class editSongControllerTest extends BaseTest {
         songs.add(sa);
         JDBCConnector.connect();
         JDBCConnector.addArtist(artist);
-
     }
 
 
     @Test
-    public void initDataAndRenderContent() {
+    public void initDataAndRenderContent() throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(1);
         Platform.runLater( new Thread(()-> {
             editSongController controller = loader.getController();
             controller.initData(songs.get(0));
             assertEquals(songs.get(0).getArtist(), artist);
+            countDownLatch.countDown();
         }));
+        countDownLatch.await();
     }
 
     @Test
-    public void initialize() {
+    public void initialize() throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(1);
         Platform.runLater( new Thread(()-> {
             editSongController controller = loader.getController();
             controller.initialize(null, null);
             assertEquals(songs.get(0).getArtist(), artist);
+            countDownLatch.countDown();
         }));
+        countDownLatch.await();
     }
 }

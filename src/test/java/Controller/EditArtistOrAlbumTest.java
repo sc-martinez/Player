@@ -3,28 +3,19 @@ package Controller;
 import Base.BaseTest;
 import Model.Album;
 import Model.JDBCConnector;
-import View.Player;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.testfx.api.FxRobot;
-import org.testfx.api.FxToolkit;
-import org.testfx.framework.junit.ApplicationTest;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
 
 import static org.junit.Assert.*;
-import static org.testfx.api.FxToolkit.registerPrimaryStage;
 
 public class EditArtistOrAlbumTest extends BaseTest {
 
@@ -42,26 +33,21 @@ public class EditArtistOrAlbumTest extends BaseTest {
         stage.show();
         JDBCConnector.connect();
         JDBCConnector.addArtist(artist);
-
     }
 
 
-    @After
-    public void tearDown () throws Exception {
-        FxToolkit.hideStage();
-        release(new KeyCode[]{});
-        release(new MouseButton[] {});
-    }
 
     @Test
-    public void initializeWhenAlbum() {
-
+    public void initializeWhenAlbum() throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(1);
         Album album = new Album("Meteora", "image",2005,  "Meteora", artist, "desc");
         Platform.runLater( new Thread(()-> {
             EditArtistOrAlbum controller =
                     loader.<EditArtistOrAlbum>getController();
             controller.initData(album);
             assertEquals(album.getArtist(), artist);
+            countDownLatch.countDown();
         }));
+        countDownLatch.await();
     }
 }
