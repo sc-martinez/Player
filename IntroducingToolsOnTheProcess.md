@@ -259,9 +259,99 @@ Ahora que ya hemos incluido nuestra métrica de coverage en el proyecto, veremos
 
 ![img_4.png](Resources/SonarCloudSummary.png)
 
+### Metricas de riesgo - Convenciones
+
+Bajo - No Compromete el componente de calidad de la solución. ( A y B ) 
+
+Moderado - Compromete de alguna manera la calidad de la solución. ( C y D )
+
+Alto - Compromete de seriamente la calidad de la solución y debe revisarse cuanto antes. ( E )
+
+###  0. Vista  General
+
+De la siguiente gráfica se puede analizar que existen 5 componentes que concentran la deuda técnica y calidad general, por otro lado 3 de ellos con alto riesgo (Baja calidad).
+
+![img.png](Resources/overview.png)
+
+#### Resumen de resultados :
+
+|  Paquete   |       Clase       | Deuda Técnica Acumulada | Riesgo |
+|:----------:|:-----------------:|:-----------------------:|:------:|
+|   Model    |  JDBCController   |        5h 40min         |  Alto  |  
+|   Model    | AZLyricsConnector |        1h 37min         |  Alto  |
+|   Model    | EditArtistOrAlbum |          25min          |  Alto  |
+|   Model    |       Song        |          10min          | Medio  |  
+| Controller | PlayerController  |         5h 5min         | Medio  |  
+
+Este es un resumen de calidad general de los componentes de la solución, a continuación realizaremos un análisis detallado por cada item de calidad, detectando aquellos puntos técnicos de mejora.
+
+### 1. Confiabilidad
+
+El siguiente es un gráfico de riesgos para los diferentes componentes de la solución en el criterio de confiabilidad. 
+ 
+![img_1.png](Resources/reliability.png)
+
+Aqui vemos que dos componentes concentran los items de confiabilidad (Bugs) de la solución, estos son: 
+
+|  Paquete   |       Clase       | Bugs | Riesgo |
+|:----------:|:-----------------:|:----:|:------:|
+|   Model    |  JDBCController   |  12  |  Alto  |  
+|   Model    | AZLyricsConnector |  1   |  Alto  |
+|   Model    |       Song        |  1   | Medio  |
+
+### Action items
+
+Revisando estos bugs se encuentra que la mayoría de estos se deben a que muchas de las operaciones de JDBCController, no realizan el cierre adecuado de las conexiones con las fuentes de datos (BD Postgres).
+
+Otro patrón que se encuentra es que las clases que son ejecutadas en Threads de forma asíncrona, no realizan un buen tratamiento de las excepciones de interrupción de proceso, por lo que se recomienda cerrar el Thread principal (Quien invoca la función) para resolver estos hallazgos. 
+
+
+### 2. Seguridad
+
+Se encuentran 13 incidencias de seguridad a lo largo del proyecto, en general estas incidencias convergen en un problema general y es la salida de información de la aplicación al mecanismo estándar de salida de sistema (SOUT). 
+
+Estas otras 3 incidencias son relacionadas a credenciales que se encuentran de forma explícita en la solución y un mejor manejo de sentencias SQL para prevenir inyección. 
+
+![img_2.png](Resources/security.png)
+
+### Action items
+
+Añadir un sistema de logs a la solución que concentren los errores de la misma y que ofusquen información sensible.  
+
+Controlar la ejecución de sentencias SQL por medio de variables seguras y procedimientos almacenados. (Revisar la opción de incluir un ORM)
+
+Las contraseñas o tokens de fuentes externas deben colocarse cómo variables de entorno o configurarse a nivel de ambiente, no deberían estar expuestas en el código fuente. 
+
+### 3. Duplicidad de código
+
+Esta solución tiene un porcentaje bajo de duplicidad de código, rondando un 3.6%, las fuentes de duplicidad se encuentran en los conectores a fuentes externas 
+y la clase JDBC connector que orquesta la ejecución de sentencias SQL.
+
+### Action Items
+
+Revisar la posibiilidad de abstraer el comportamiento de las clases YoutubeConnector y AZLyricsConnector a una clase abstracta de controller.
+
+Abstraer la ejecución de sentencias SQL para disminuir la duplicidad de código y componer una clase de utilitarios para este fin. 
+
+### 4. Coverage
+Se puede observar que se debe reforzar la cobertura de las pruebas de unidad, sobre todo para aquellas clases cuya complejidad ciclomática es alta.
+
+![img_3.png](Resources/coverage.png)
+
+
+### Action Items
+
+Implementar pruebas de unidad para la clase PlayerController.
+
+Aumentar escenarios de prueba para la clase JDBCController.
+
+Mejorar la implementación de pruebas para las clases Song y MP3 Player.
+
+
 
 ## Composición de dashboard del estado de la calidad
 
 Se añade un dashboard en la sección principal del archivo [Readme.md](https://github.com/sc-martinez/Player/blob/master/README.md) que le permitirá al equipo de desarrollo monitorear la calidad de la última versión analizada de la solución. 
 
 ![img_5.png](Resources/QualityMeasures.png)
+
