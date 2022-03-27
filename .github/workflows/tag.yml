@@ -11,11 +11,26 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v2
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "Player-1.0.1-jar-with-dependencies.jar"
-          body: "New version released"
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+          id: create_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: Release ${{ github.ref }}
+            draft: false
+            prerelease: false
+      - name: Upload Release Asset
+          id: upload-release-asset
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+            asset_path: ./version-executable.zip
+            asset_name: version-executable.zip
+            asset_content_type: application/zip
       - name: Send some mail
         uses: wadeww/send-email-action@master
         with:

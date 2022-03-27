@@ -82,4 +82,5 @@ jobs:
       - name: Publish executable to Artifactory
         uses: actions/upload-artifact@v3
         with:
+          name: version-executable
           path: target/Player-1.0.1-jar-with-dependencies.jar
