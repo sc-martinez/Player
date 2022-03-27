@@ -48,7 +48,7 @@ Paso encargado de construir el artefacto Jar sin dependencias, encargado de veri
   - name: Build
         run:
           sudo apt-get install xvfb &&
-          Xvfb :99 &>/dev/null & export DISPLAY=":99" && mvn build
+          Xvfb :99 &>/dev/null & export DISPLAY=":99" && mvn compile
 ```
 
 ### Test ✅
