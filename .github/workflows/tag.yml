@@ -14,5 +14,5 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "version-executable"
-          bodyFile: "New version released"
+          body: "New version released"
           token: ${{ secrets.GITHUB_TOKEN }}
