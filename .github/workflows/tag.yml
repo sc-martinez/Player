@@ -32,13 +32,13 @@ jobs:
             asset_name: version-executable.zip
             asset_content_type: application/zip
       - name: Send some mail
-        uses: wadeww/send-email-action@master
+        uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
           port: 465
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: A new Release requires new Release Notes
-          body: Job completed ${{job.status}}
+          body: Build job of ${{github.repository}} completed successfully!
           to: ${{secrets.MAIL_SENDER_TO}}
-          from: Release Automation
+          from: Me
