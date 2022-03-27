@@ -1,0 +1,19 @@
+name: E-Mail Release Notification
+on:
+  release:
+    types: [published]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send some mail
+        uses: wadeww/send-email-action@master
+        with:
+          server_address: smtp.gmail.com
+          port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: A new Release requires new Release Notes
+          body: Job completed ${{job.status}}
+          to: ${{secrets.MAIL_SENDER_TO}}
+          from: Release Automation

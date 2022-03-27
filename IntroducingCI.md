@@ -11,6 +11,92 @@ En esta oportunidad extenderemos un poco el uso de las GitHubActions y complemen
 #### Encontrado en test/Model/Model.YoutubeLauncherTest.java
 
 ```yml
+name: CI Pipeline 
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        database-name:
+          - player
+        database-password:
+          - password
+        database-user:
+          - postgres
+        database-host:
+          - 127.0.0.1
+        database-port:
+          - 5432
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: ${{ matrix.database-name }}
+          POSTGRES_USER: ${{ matrix.database-user }}
+          POSTGRES_PASSWORD: ${{ matrix.database-password }}
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options:
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Setup database
+        run:
+          psql -f dockerYamls/PostgreSQL/sql/compose_database.sql postgresql://postgres:password@localhost:5432/player
+      - name: Build
+        run:
+          sudo apt-get install xvfb &&
+          Xvfb :99 &>/dev/null & export DISPLAY=":99" && mvn compile
+      - name : Tests
+        run:
+          sudo apt-get install xvfb &&
+          Xvfb :99 &>/dev/null & export DISPLAY=":99" && mvn test
+      - name: Verify
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run:
+          sudo apt-get install xvfb &&
+          Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
+          mvn clean install -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sc-martinez_Player
+      - name : Package
+        run : sudo apt-get install xvfb &&
+          Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
+          mvn package
+      - name: Publish executable to Artifactory
+        uses: actions/upload-artifact@v3
+        with:
+          name: version-executable
+          path: target/Player-1.0.1-jar-with-dependencies.jar
 
 ```
 </details></p>
