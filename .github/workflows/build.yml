@@ -62,7 +62,7 @@ jobs:
       - name: Build
         run:
           sudo apt-get install xvfb &&
-          Xvfb :99 &>/dev/null & export DISPLAY=":99" && mvn build
+          Xvfb :99 &>/dev/null & export DISPLAY=":99" && mvn compile
       - name : Tests
         run:
           sudo apt-get install xvfb &&
