@@ -9,21 +9,27 @@ import org.testfx.framework.junit.ApplicationTest;
 
 import org.junit.Test;
 
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 
 public class Mp3playerTest extends BaseTest {
 
     AnchorPane pane;
+    String artist = UUID.randomUUID().toString() ;
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage)throws IllegalAccessException, InstantiationException, SQLException, ClassNotFoundException {
         pane = new AnchorPane();
         stage.setScene(new Scene( pane
                 , 100, 100));
-        //stage.show();
+        stage.show();
+        JDBCConnector.connect();
+        JDBCConnector.addArtist(artist);
+
     }
 
     @Test
