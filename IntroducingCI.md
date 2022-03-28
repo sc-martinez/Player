@@ -218,6 +218,9 @@ La fase de empaquetado de esta solución, se modificó para proveer un sólo Jar
    
 ## Creación automática de Releases 🚀
 
+Se ha creado un proceso para el aprovisionamiento automático de releases, de esta manera el equipo será notificado cuando un tag de release es publicado, 
+añadiendo de forma programática el ejecutable y el código fuente de la versión. 
+
 ```yml
       steps:
         ...
@@ -254,18 +257,28 @@ La fase de empaquetado de esta solución, se modificó para proveer un sólo Jar
               asset_content_type: application/java-archive
 ```
 
+### Imagen de muestra de un release creado automaticamente con el ejecutable disponible. 
+
+![img.png](Resources/releasesample.png)
+
 ## Integración con herramientas de comunicación - Email 📤
 
+Se ha programado que luego de cada release, el pipeline de CI enviará un correo notificando que el release se ha creado automaticamente y que el equipo debe añadir las release notes correspondientes a la versión. 
+
 ```yml
- - name: Send some mail
-          uses: dawidd6/action-send-mail@v3
-          with:
-            server_address: smtp.gmail.com
-            port: 465
-            username: ${{secrets.MAIL_USERNAME}}
-            password: ${{secrets.MAIL_PASSWORD}}
-            subject: A new Release requires new Release Notes
-            body: Build job of ${{github.repository}} completed successfully!
-            to: ${{secrets.MAIL_SENDER_TO}}
-            from: Me
+    - name: Send some mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: A new Release requires new Release Notes
+          body: Build job of ${{github.repository}} completed successfully!
+          to: ${{secrets.MAIL_SENDER_TO}}
+          from: Player Builder
 ```
+
+### Imagen de muestra de un correo enviado por el pipeline.
+
+![img.png](Resources/emailsample.png)
