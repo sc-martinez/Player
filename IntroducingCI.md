@@ -220,41 +220,38 @@ La fase de empaquetado de esta solución, se modificó para proveer un sólo Jar
 
 ```yml
       steps:
-        - uses: actions/checkout@v2
-          with:
-            fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-        - name: Set up JDK 11
-          uses: actions/setup-java@v1
-          with:
-            java-version: 11
-        - name: Package
+        ...
+         - name: Package
           run: sudo apt-get install xvfb &&
             Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
             mvn package
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - name: Create Release
-          id: create_release
-          uses: actions/create-release@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          with:
-            tag_name: ${{ github.ref }}
-            release_name: Release ${{ github.ref }}
-            body: |
-              A new release has been created
-            draft: false
-            prerelease: false
-        - name: Upload Release Asset
-          id: upload_release_asset
-          uses: actions/upload-release-asset@v1
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-            asset_path: target/Player-1.0.1-jar-with-dependencies.jar
-            asset_name: executable.jar
-            asset_content_type: application/java-archive
+          - name: Publish executable to Artifactory
+            uses: actions/upload-artifact@v3
+            with:
+              name: version-executable
+              path: target/Player-1.0.1-jar-with-dependencies.jar
+          - name: Create Release
+            id: create_release
+            uses: actions/create-release@v1
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+            with:
+              tag_name: ${{ github.ref }}
+              release_name: Release ${{ github.ref }}
+              body: |
+                A new release has been created
+              draft: false
+              prerelease: false
+          - name: Upload Release Asset
+            id: upload_release_asset
+            uses: actions/upload-release-asset@v1
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            with:
+              upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+              asset_path: /home/runner/work/Player/Player/target/Player-1.0.1-jar-with-dependencies.jar
+              asset_name: executable.jar
+              asset_content_type: application/java-archive
 ```
 
 ## Integración con herramientas de comunicación - Email 📤

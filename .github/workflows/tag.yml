@@ -88,4 +88,4 @@ jobs:
             subject: A new Release requires new Release Notes
             body: Build job of ${{github.repository}} completed successfully!
             to: ${{secrets.MAIL_SENDER_TO}}
-            from: Me
+            from: Player Builder
