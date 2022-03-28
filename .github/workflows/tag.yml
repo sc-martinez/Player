@@ -11,6 +11,10 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
+      - name: Package
+            run: sudo apt-get install xvfb &&
+              Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
+              mvn package
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Create Release
