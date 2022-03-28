@@ -92,3 +92,6 @@ B -- Plan de pruebas --> D([Pruebas unitarias])
 
 - ***18-20 de marzo de 2022***  : Utilización de herramientas de anális estático de código.
   - Resultados en : [IntroducingToolsOnTheProcess.md](https://github.com/sc-martinez/Player/blob/master/IntroducingToolsOnTheProcess.md)
+
+- ***25-27 de marzo de 2022***  : Introducción de pipelines de CI (Continuous integrations).
+  - Resultados en : [IntroducingCI.md](https://github.com/sc-martinez/Player/blob/master/IntroducingCI.md)
