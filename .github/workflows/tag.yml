@@ -44,12 +44,15 @@ jobs:
           uses: actions/setup-java@v1
           with:
             java-version: 11
+        - name: Checkout code
+            uses: actions/checkout@v2
+        - name: Setup database
+            run:
+              psql -f dockerYamls/PostgreSQL/sql/compose_database.sql postgresql://postgres:password@localhost:5432/player
         - name: Package
           run: sudo apt-get install xvfb &&
             Xvfb :99 &>/dev/null & export DISPLAY=":99" &&
             mvn package
-        - name: Checkout code
-          uses: actions/checkout@v2
         - name: Publish executable to Artifactory
           uses: actions/upload-artifact@v3
           with:
@@ -74,9 +77,9 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           with:
             upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-            asset_path: ./version-executable.zip
-            asset_name: version-executable.zip
-            asset_content_type: application/zip
+            asset_path: /home/runner/work/Player/Player/target/Player-1.0.1-jar-with-dependencies.jar
+            asset_name: executable.jar
+            asset_content_type: application/java-archive
         - name: Send some mail
           uses: dawidd6/action-send-mail@v3
           with:
