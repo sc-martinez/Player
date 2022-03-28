@@ -51,10 +51,10 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
         - name: Publish executable to Artifactory
-            uses: actions/upload-artifact@v3
-            with:
-              name: version-executable
-              path: target/Player-1.0.1-jar-with-dependencies.jar
+          uses: actions/upload-artifact@v3
+          with:
+            name: version-executable
+            path: target/Player-1.0.1-jar-with-dependencies.jar
         - name: Create Release
           id: create_release
           uses: actions/create-release@v1
