@@ -1,10 +1,9 @@
+name: Create Release Flow
 on:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
-
-name: Create Release Flow
 
 jobs:
   build:
@@ -22,7 +21,7 @@ jobs:
           - 127.0.0.1
         database-port:
           - 5432
-      services:
+    services:
         postgres:
           image: postgres:latest
           env:
@@ -37,7 +36,7 @@ jobs:
             --health-interval 10s
             --health-timeout 5s
             --health-retries 5
-      steps:
+    steps:
         - uses: actions/checkout@v2
           with:
             fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
