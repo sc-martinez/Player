@@ -95,3 +95,6 @@ B -- Plan de pruebas --> D([Pruebas unitarias])
 
 - ***25-27 de marzo de 2022***  : Introducción de pipelines de CI (Continuous integrations).
   - Resultados en : [IntroducingCI.md](https://github.com/sc-martinez/Player/blob/master/IntroducingCI.md)
+
+- ***01-03 de Abril de 2022***  : Análisis de deuda de arquitectura.
+  - Resultados en : [ArchitecturalDebt.md](https://github.com/sc-martinez/Player/blob/master/ArchitecturalDebt.md)
