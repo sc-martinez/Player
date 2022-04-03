@@ -68,7 +68,7 @@ Modelo entidad-relación MER (Original) :
 
 
 ## Flujo de trabajo
-El trabajo de dividirá siguiendo el siguiente flujo de actividades.
+El trabajo se dividirá siguiendo el siguiente flujo de actividades.
 ```mermaid
 graph LR
 A([Identificar Code-Smells]) -- Plan de refactor --> B([Clean-Code y XP])

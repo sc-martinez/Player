@@ -92,7 +92,7 @@ public void findYoutubeLinkWhenSongNotExists(){
 
 #### Coverage
 
-![img.png](TestsYoutubeLauncher.png)
+![img.png](Resources/TestsYoutubeLauncher.png)
 
 
 
