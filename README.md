@@ -22,7 +22,7 @@ Este repositorio contiene el resultado de la aplicación de técnicas de gestió
 
 En esta oportunidad se hará el análisis, gestión y resolución de la deuda técnica a una solución de reproducción de audio construida por un estudiante de ciencias de la computación.
 
-###Objetivo
+### Objetivo
 Se identificarán las oportunidades de mejora y se implementarán los cambios necesarios en el repositorío relacionado cómo Fork.
 
 ![N|Solid](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) Original :  https://github.com/DanielVeB/Player
@@ -98,3 +98,6 @@ B -- Plan de pruebas --> D([Pruebas unitarias])
 
 - ***01-03 de Abril de 2022***  : Análisis de deuda de arquitectura.
   - Resultados en : [ArchitecturalDebt.md](https://github.com/sc-martinez/Player/blob/master/ArchitecturalDebt.md)
+
+- ***22-24 de Abril de 2022***  : Análisis de deuda ATAM + QAW.
+  - Resultados en : [ATAM+QAW.md](https://github.com/sc-martinez/Player/blob/master/ATAM+QAW.md)
