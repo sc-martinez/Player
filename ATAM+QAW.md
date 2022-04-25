@@ -30,3 +30,49 @@ Algunas de estas vistas se generaron utilizando la herramienta  [Code Iris](http
 
 
 
+|       Elemento de trabajo       |                                                                         Detalle                                                                          |
+|:-------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|            Escenario            |                La completitud de la reproducción de una canción, la adición de un album y de una lista deberían tomar menos de 5 minutos                 |
+|       Objetivo de Negocio       |                                                       Un reproductor de música  atractivo y usable                                                       |
+| Atributos de calidad relevantes |                                                                        Usabilidad                                                                        |
+|            Estimulo             |                                Los usuarios reproducen una canción, navegan por los menús y hacen listas de reproducción                                 |
+|       Fuente del estimulo       |                                                        Un usuario en la aplicación de escritorio                                                         |
+|            Ambiente             |                          La aplicación de escritorio ha sido iniciada y los sistemas de almacenamiento se encuentran en línea.                           |
+|            Artefacto            |                                                                 Aplicación de escritorio                                                                 |
+|            Respuesta            |                                  Las actividades de los usuarios se completan satisfactoriamente en el tiempo requerido                                  |
+|     Medida de la respuesta      |                                                     [ (Σ tiempo de la tarea ) / # de tareas) ] <  5m                                                     |
+|            Preguntas            |        ¿Qué sucede en la GUI cuando la canción cargada toma mucho tiempo de almacenamiento o la cantidad de listas de reproducción es muy grande?        |
+|         Inconvenientes          | Los usuarios deben estar capacitados para usar la aplicación correctamente y actualmente el sistema no cuenta con tutoriales interactivos o guías de uso |
+
+### Escenario #2
+
+|       Elemento de trabajo       |                                                  Detalle                                                  |
+|:-------------------------------:|:---------------------------------------------------------------------------------------------------------:|
+|            Escenario            |               El reproductor de audio se distribuirá a lo largo del mundo / Publico general               |
+|       Objetivo de Negocio       |                              Un reproductor de música  disponible para todos                              |
+| Atributos de calidad relevantes |                                           Internacionalización                                            |
+|            Estimulo             |                  La GUI responde al idioma del sistema en el que se encuentre instalado                   |
+|       Fuente del estimulo       |                                 Un usuario en la aplicación de escritorio                                 |
+|            Ambiente             |   La aplicación de escritorio ha sido iniciada y los sistemas de almacenamiento se encuentran en línea.   |
+|            Artefacto            |                                         Aplicación de escritorio                                          |
+|            Respuesta            |                Los usuarios pueden entender el contenido de la UI en su idioma de sistema                 |
+|     Medida de la respuesta      |      [ (Σ idiomas de las regiones de uso  ) / # de paises en donde se usa el reproductor) ] >= 0.90       |
+|            Preguntas            | ¿Se pretenden utilizar lenguajes de uso general o lenguajes de minorias étnicas / inclusión de dialectos? |
+|         Inconvenientes          |                                                                                                           |
+
+### Escenario #3
+
+
+|       Elemento de trabajo       |                                                         Detalle                                                          |
+|:-------------------------------:|:------------------------------------------------------------------------------------------------------------------------:|
+|            Escenario            |                Se requiere que el reproductor pueda ser usado en las diferentes plataformas Windows e IOS                |
+|       Objetivo de Negocio       |                                     Un reproductor de música  disponible para todos                                      |
+| Atributos de calidad relevantes |                                                    Interoperabilidad                                                     |
+|            Estimulo             |    Los usuarios pueden usar el sistema en los diferentes dispositivos/plataformas con una funcionalidad mayor al 90%     |
+|       Fuente del estimulo       |                                        Un usuario en la aplicación de escritorio                                         |
+|            Ambiente             |         La aplicación de escritorio no ha sido iniciada y los sistemas de almacenamiento se encuentran en línea.         |
+|            Artefacto            |                                                 Aplicación de escritorio                                                 |
+|            Respuesta            | La aplicación se inicializa de forma correcta y permite realizar las actividades a los usuarios en distintas plataformas |
+|     Medida de la respuesta      |              [ (Σ funcionalides éxitosas en la plataforma en uso ) / # de funcionalidades totales) ] > 0.80              |
+|            Preguntas            |                           ¿Que sucede con las plataformas móviles o los OS de uso no general?                            |
+|         Inconvenientes          |                                                                                                                          |
