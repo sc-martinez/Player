@@ -68,7 +68,7 @@ Algunas de estas vistas se generaron utilizando la herramienta  [Code Iris](http
 |            Escenario            |                Se requiere que el reproductor pueda ser usado en las diferentes plataformas Windows e IOS                |
 |       Objetivo de Negocio       |                                     Un reproductor de música  disponible para todos                                      |
 | Atributos de calidad relevantes |                                                    Interoperabilidad                                                     |
-|            Estimulo             |    Los usuarios pueden usar el sistema en los diferentes dispositivos/plataformas con una funcionalidad mayor al 90%     |
+|            Estimulo             |    Los usuarios pueden usar el sistema en los diferentes dispositivos/plataformas con una funcionalidad mayor al 80%     |
 |       Fuente del estimulo       |                                        Un usuario en la aplicación de escritorio                                         |
 |            Ambiente             |         La aplicación de escritorio no ha sido iniciada y los sistemas de almacenamiento se encuentran en línea.         |
 |            Artefacto            |                                                 Aplicación de escritorio                                                 |
